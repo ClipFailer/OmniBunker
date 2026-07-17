@@ -1,0 +1,26 @@
+[
+	{
+		"file": "C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/Module.OmniBunker.gen.cpp",
+		"command": "\"C:/Program Files/LLVM/bin/clang-cl.exe\" @\"C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/Module.OmniBunker.gen.cpp.obj.rsp\" ",
+		"directory": "C:/Program Files/Epic Games/UE_5.7/Engine/Source",
+		"output": "C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/Module.OmniBunker.gen.cpp.obj"
+	},
+	{
+		"file": "C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/PerModuleInline.gen.cpp",
+		"command": "\"C:/Program Files/LLVM/bin/clang-cl.exe\" @\"C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/PerModuleInline.gen.cpp.obj.rsp\" ",
+		"directory": "C:/Program Files/Epic Games/UE_5.7/Engine/Source",
+		"output": "C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/PerModuleInline.gen.cpp.obj"
+	},
+	{
+		"file": "C:/Projects/UE/OmniBunker/Source/OmniBunker/Characters/OB_BaseCharacter.cpp",
+		"command": "\"C:/Program Files/LLVM/bin/clang-cl.exe\" @\"C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/OB_BaseCharacter.cpp.obj.rsp\" ",
+		"directory": "C:/Program Files/Epic Games/UE_5.7/Engine/Source",
+		"output": "C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/OB_BaseCharacter.cpp.obj"
+	},
+	{
+		"file": "C:/Projects/UE/OmniBunker/Source/OmniBunker/OmniBunker.cpp",
+		"command": "\"C:/Program Files/LLVM/bin/clang-cl.exe\" @\"C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/OmniBunker.cpp.obj.rsp\" ",
+		"directory": "C:/Program Files/Epic Games/UE_5.7/Engine/Source",
+		"output": "C:/Projects/UE/OmniBunker/Intermediate/Build/Win64/x64/UnrealEditor/Development/OmniBunker/OmniBunker.cpp.obj"
+	}
+]
