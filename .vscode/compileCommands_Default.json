@@ -1,0 +1,26 @@
+[
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\OmniBunker.Build.cs",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\OmniBunker.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\OmniBunker.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	}
+]
