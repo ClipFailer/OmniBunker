@@ -1,5 +1,101 @@
 [
 	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Characters\\OB_BaseCharacter.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Characters\\OB_BaseCharacter.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Components\\OB_HealthComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Components\\OB_HealthComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Components\\OB_InteractionComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Components\\OB_InteractionComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Components\\StaminaComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Components\\StaminaComponent.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Interaction\\OB_InteractableActor.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Interaction\\OB_InteractableActor.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Interfaces\\Interactable.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\Interfaces\\Interactable.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
 		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\OmniBunker.Build.cs",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
@@ -17,6 +113,22 @@
 	},
 	{
 		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\OmniBunker.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\UI\\InteractionHintWidget.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Projects\\UE\\OmniBunker\\Source\\OmniBunker\\UI\\InteractionHintWidget.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\cl.exe",
 			"@C:\\Projects\\UE\\OmniBunker\\.vscode\\compileCommands_Default\\OmniBunker.1.rsp"

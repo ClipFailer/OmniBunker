@@ -12,6 +12,7 @@ class UInputMappingContext;
 class UInputAction;
 class UOB_HealthComponent;
 class UStaminaComponent;
+class UOB_InteractionComponent;
 
 UCLASS()
 class OMNIBUNKER_API AOB_BaseCharacter : public ACharacter
@@ -34,6 +35,7 @@ protected:
 	UFUNCTION()
 	void OnStaminaEnded();
 	void DoJump(const FInputActionValue& Value);
+	void Interact(const FInputActionValue& Value);
 
 	// === COMPONENTS ===
 
@@ -45,6 +47,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stamina")
 	UStaminaComponent* StaminaComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stamina")
+	UOB_InteractionComponent* InteractionComponent;
 
 	// === PROPERTIES ===
 
@@ -70,4 +75,7 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	UInputAction* SprintIA;
+
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	UInputAction* InteractIA;
 };

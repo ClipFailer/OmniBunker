@@ -6,6 +6,7 @@
 #include "Components/CapsuleComponent.h"
 #include "../Components/OB_HealthComponent.h"
 #include "../Components/StaminaComponent.h"
+#include "../Components/OB_InteractionComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputTriggers.h"
@@ -20,8 +21,8 @@ AOB_BaseCharacter::AOB_BaseCharacter()
 	Camera->bUsePawnControlRotation = true;
 
 	HealthComponent = CreateDefaultSubobject<UOB_HealthComponent>(TEXT("HealthComponent"));
-
 	StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
+	InteractionComponent = CreateDefaultSubobject<UOB_InteractionComponent>(TEXT("InteractionComponent"));
 }
 
 void AOB_BaseCharacter::BeginPlay()
@@ -103,6 +104,14 @@ void AOB_BaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 				&ThisClass::StopSprint
 			);
 		}
+		if (InteractIA) {
+			EnhancedIC->BindAction(
+				InteractIA,
+				ETriggerEvent::Started,
+				this,
+				&ThisClass::Interact
+			);
+		}
 	}
 }
 
@@ -168,4 +177,10 @@ void AOB_BaseCharacter::DoJump(const FInputActionValue& Value) {
 	Jump();
 
 	StaminaComponent->SpendStamina(StaminaComponent->GetMinStaminaToJump());
+}
+
+void AOB_BaseCharacter::Interact(const FInputActionValue& Value) {
+	if (!InteractionComponent) return;
+
+	InteractionComponent->Interact();
 }
