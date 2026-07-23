@@ -4,183 +4,135 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+
 #include "../Components/OB_HealthComponent.h"
 #include "../Components/StaminaComponent.h"
 #include "../Components/OB_InteractionComponent.h"
-#include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
-#include "InputTriggers.h"
-// #include "Templates/Casts.h"
+#include "../Components/InventoryComponent.h"
+#include "../Interaction/OB_InventoryActor.h"
 
 AOB_BaseCharacter::AOB_BaseCharacter()
 {
-	// PrimaryActorTick.bCanEverTick = true;
+    PrimaryActorTick.bCanEverTick = false;
 
-	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	Camera->SetupAttachment(GetCapsuleComponent());
-	Camera->bUsePawnControlRotation = true;
+    Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+    Camera->SetupAttachment(GetCapsuleComponent());
+    Camera->bUsePawnControlRotation = true;
 
-	HealthComponent = CreateDefaultSubobject<UOB_HealthComponent>(TEXT("HealthComponent"));
-	StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
-	InteractionComponent = CreateDefaultSubobject<UOB_InteractionComponent>(TEXT("InteractionComponent"));
+    HealthComponent = CreateDefaultSubobject<UOB_HealthComponent>(TEXT("HealthComponent"));
+    StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
+    InteractionComponent = CreateDefaultSubobject<UOB_InteractionComponent>(TEXT("InteractionComponent"));
+    InventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComp"));
 }
 
 void AOB_BaseCharacter::BeginPlay()
 {
-	Super::BeginPlay();
-	
-	// Input
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller)) {
-		if (ULocalPlayer* LocalPlayer = PlayerController->GetLocalPlayer())
-		if(UEnhancedInputLocalPlayerSubsystem* EnhancedSubsystem =
-				ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer)) {
-			if (DefaultMappingContext) {
-				EnhancedSubsystem->AddMappingContext(DefaultMappingContext, 0);
-			}
-		}
-	}
+    Super::BeginPlay();
 
-	// Stamina
-	if (StaminaComponent) {
-		StaminaComponent->OnStaminaEndedDelegate.AddDynamic(
-			this, 
-			&ThisClass::OnStaminaEnded
-		);
-	}
+    if (StaminaComponent) 
+    {
+        StaminaComponent->OnStaminaEndedDelegate.AddDynamic(this, &ThisClass::OnStaminaEnded);
+    }
+}
+
+UInventoryComponent* AOB_BaseCharacter::GetInventoryComp_Implementation() const 
+{
+    return InventoryComp;
+}
+
+bool AOB_BaseCharacter::Pickup_Implementation(AOB_InventoryActor* InventoryActor) 
+{
+    if (!InventoryActor || !InventoryComp) return false;
+
+    return InventoryComp->AddItem(
+        InventoryActor->GetItemData(), 
+        InventoryActor->GetQuantity()
+    );
+}
+
+UOB_InteractionComponent* AOB_BaseCharacter::GetInteractionComp_Implementation() const 
+{
+    return InteractionComponent;
 }
 
 void AOB_BaseCharacter::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
-
+    Super::Tick(DeltaTime);
 }
 
-void AOB_BaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void AOB_BaseCharacter::Move(const FInputActionValue& Value) 
 {
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
+    const FVector2D Axis = Value.Get<FVector2D>();
 
-	if (UEnhancedInputComponent* EnhancedIC = CastChecked<UEnhancedInputComponent>(PlayerInputComponent)) {
-		if (MoveIA) {
-			EnhancedIC->BindAction(
-				MoveIA, 
-				ETriggerEvent::Triggered, 
-				this, 
-				&ThisClass::Move
-			);
-		}
-		if (LookIA) {
-			EnhancedIC->BindAction(
-				LookIA, 
-				ETriggerEvent::Triggered, 
-				this, 
-				&ThisClass::Look
-			);
-		}
-		if (JumpIA) {
-			EnhancedIC->BindAction(
-				JumpIA, 
-				ETriggerEvent::Started, 
-				this, 
-				&ThisClass::DoJump
-			);
-			EnhancedIC->BindAction(
-				JumpIA, 
-				ETriggerEvent::Completed, 
-				this, 
-				&ACharacter::StopJumping
-			);
-		}
-		if (SprintIA) {
-			EnhancedIC->BindAction(
-				SprintIA, 
-				ETriggerEvent::Started, 
-				this, 
-				&ThisClass::StartSprint
-			);
-			EnhancedIC->BindAction(
-				SprintIA, 
-				ETriggerEvent::Completed, 
-				this, 
-				&ThisClass::StopSprint
-			);
-		}
-		if (InteractIA) {
-			EnhancedIC->BindAction(
-				InteractIA,
-				ETriggerEvent::Started,
-				this,
-				&ThisClass::Interact
-			);
-		}
-	}
+    if (Controller) 
+    {
+        const FRotator ControlRotator = FRotator(0.f, Controller->GetControlRotation().Yaw, 0.f);
+        const FVector Forward = FRotationMatrix(ControlRotator).GetUnitAxis(EAxis::X);
+        const FVector Right = FRotationMatrix(ControlRotator).GetUnitAxis(EAxis::Y);
+
+        AddMovementInput(Forward, Axis.Y);
+        AddMovementInput(Right, Axis.X);
+    }
 }
 
-void AOB_BaseCharacter::Move(const FInputActionValue& Value) {
-	const FVector2D Axis = Value.Get<FVector2D>();
+void AOB_BaseCharacter::Look(const FInputActionValue& Value) 
+{
+    const FVector2D Axis = Value.Get<FVector2D>();
 
-	if (Controller) {
-		const FRotator ControlRotator = FRotator(
-			0.f, 
-			Controller->GetControlRotation().Yaw, 
-			0.f
-		);
-		const FVector Forward = FRotationMatrix(ControlRotator).GetUnitAxis(EAxis::X);
-		const FVector Right = FRotationMatrix(ControlRotator).GetUnitAxis(EAxis::Y);
-
-		AddMovementInput(Forward, Axis.Y);
-		AddMovementInput(Right, Axis.X);
-	}
+    if (Controller) 
+    {
+        AddControllerYawInput(Axis.X);
+        AddControllerPitchInput(-Axis.Y);
+    }
 }
 
-void AOB_BaseCharacter::Look(const FInputActionValue& Value) {
-	const FVector2D Axis = Value.Get<FVector2D>();
+void AOB_BaseCharacter::StartSprint(const FInputActionValue& Value) 
+{
+    if (!StaminaComponent || StaminaComponent->GetCurrentStamina() < StaminaComponent->GetMinStaminaToSprint())
+        return;
+    
+    if (GetCharacterMovement())
+        GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
 
-	if (Controller) {
-		AddControllerYawInput(Axis.X);
-		AddControllerPitchInput(-Axis.Y);
-	}
+    StaminaComponent->StartDecreaseStamina();
 }
 
-void AOB_BaseCharacter::StartSprint(const FInputActionValue& Value) {
-	if (!StaminaComponent || 
-			StaminaComponent->GetCurrentStamina() < StaminaComponent->GetMinStaminaToSprint())
-		return;
-	
-	if (GetCharacterMovement())
-		GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+void AOB_BaseCharacter::StopSprint(const FInputActionValue& Value) 
+{
+    if (GetCharacterMovement())
+        GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
 
-	StaminaComponent->StartDecreaseStamina();
+    if (StaminaComponent)
+        StaminaComponent->StartIncreaseStamina();
 }
 
-void AOB_BaseCharacter::StopSprint(const FInputActionValue& Value) {
-	if (GetCharacterMovement())
-		GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
-
-	StaminaComponent->StartIncreaseStamina();
-}
-
-void AOB_BaseCharacter::OnStaminaEnded() {
-	if (GetCharacterMovement()) {
+void AOB_BaseCharacter::OnStaminaEnded() 
+{
+    if (GetCharacterMovement()) 
+    {
         GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
     }
-	
-    if (StaminaComponent) {
+    
+    if (StaminaComponent) 
+    {
         StaminaComponent->StartIncreaseStamina();
     }
 }
 
-void AOB_BaseCharacter::DoJump(const FInputActionValue& Value) {
-	if (!StaminaComponent ||
-			StaminaComponent->GetCurrentStamina() < StaminaComponent->GetMinStaminaToJump())
-		return;
+void AOB_BaseCharacter::DoJump(const FInputActionValue& Value) 
+{
+    if (!StaminaComponent || StaminaComponent->GetCurrentStamina() < StaminaComponent->GetMinStaminaToJump())
+        return;
 
-	Jump();
+    Jump();
 
-	StaminaComponent->SpendStamina(StaminaComponent->GetMinStaminaToJump());
+    StaminaComponent->SpendStamina(StaminaComponent->GetMinStaminaToJump());
 }
 
-void AOB_BaseCharacter::Interact(const FInputActionValue& Value) {
-	if (!InteractionComponent) return;
-
-	InteractionComponent->Interact();
+void AOB_BaseCharacter::Interact(const FInputActionValue& Value) 
+{
+    if (InteractionComponent) 
+    {
+        InteractionComponent->Interact();
+    }
 }

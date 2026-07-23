@@ -21,6 +21,7 @@ AOB_InteractableActor::AOB_InteractableActor()
 	);
 	InteractionWidgetComp->SetupAttachment(RootComponent);
 	InteractionWidgetComp->SetWidgetSpace(EWidgetSpace::Screen);
+
 	
 }
 
@@ -46,13 +47,17 @@ void AOB_InteractableActor::BeginPlay()
 								(InteractionWidgetComp->GetUserWidgetObject());
 	
 	// if (InteractionWidgetInstance) 
-		// InteractionWidgetInstance->SetRenderOpacity(0.f);						
+		// InteractionWidgetInstance->SetRenderOpacity(0.f);	
+	InteractionWidgetComp->SetVisibility(false);
+
 }
 
 void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {
 	if (!Interactor) return;
         
-	InteractionWidgetInstance->PlayClickAnim();
+	PlayWidgetClickAnim();
+
+	if (!bCanInteract) return;
 
 	UE_LOG(
 		LogTemp, 
@@ -61,4 +66,8 @@ void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {
 		*GetName(), 
 		*Interactor->GetName()
 	);
+}
+
+void AOB_InteractableActor::PlayWidgetClickAnim() {
+	InteractionWidgetInstance->PlayClickAnim();
 }

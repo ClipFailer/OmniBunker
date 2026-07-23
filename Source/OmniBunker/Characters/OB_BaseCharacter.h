@@ -5,77 +5,65 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "../Interfaces/OB_CharacterInterface.h"
 #include "OB_BaseCharacter.generated.h"
 
 class UCameraComponent;
-class UInputMappingContext;
-class UInputAction;
 class UOB_HealthComponent;
 class UStaminaComponent;
 class UOB_InteractionComponent;
+class UInventoryComponent;
 
 UCLASS()
-class OMNIBUNKER_API AOB_BaseCharacter : public ACharacter
+class OMNIBUNKER_API AOB_BaseCharacter : public ACharacter, public IOB_CharacterInterface
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	AOB_BaseCharacter();
+    AOB_BaseCharacter();
 
-	virtual void Tick(float DeltaTime) override;
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    virtual void Tick(float DeltaTime) override;
+
+    virtual UInventoryComponent* GetInventoryComp_Implementation() const override;
+    virtual bool Pickup_Implementation(AOB_InventoryActor* InventoryActor) override;
+    virtual UOB_InteractionComponent* GetInteractionComp_Implementation() const override;
+
+    // Публичные методы выполнения действий
+    void Move(const FInputActionValue& Value);
+    void Look(const FInputActionValue& Value);
+    void StartSprint(const FInputActionValue& Value);
+    void StopSprint(const FInputActionValue& Value);
+    void DoJump(const FInputActionValue& Value);
+    void Interact(const FInputActionValue& Value);
+
+    UFUNCTION()
+    void OnStaminaEnded();
 
 protected:
-	virtual void BeginPlay() override;
+    virtual void BeginPlay() override;
 
-	void Move(const FInputActionValue& Value);
-	void Look(const FInputActionValue& Value);
-	void StartSprint(const FInputActionValue& Value);
-	void StopSprint(const FInputActionValue& Value);
-	UFUNCTION()
-	void OnStaminaEnded();
-	void DoJump(const FInputActionValue& Value);
-	void Interact(const FInputActionValue& Value);
+    // === COMPONENTS ===
 
-	// === COMPONENTS ===
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
+    TObjectPtr<UCameraComponent> Camera;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
-	UCameraComponent* Camera;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Health")
+    TObjectPtr<UOB_HealthComponent> HealthComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Health")
-	UOB_HealthComponent* HealthComponent;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stamina")
+    TObjectPtr<UStaminaComponent> StaminaComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stamina")
-	UStaminaComponent* StaminaComponent;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Interaction")
+    TObjectPtr<UOB_InteractionComponent> InteractionComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stamina")
-	UOB_InteractionComponent* InteractionComponent;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Inventory")
+    TObjectPtr<UInventoryComponent> InventoryComp;
 
-	// === PROPERTIES ===
+    // === PROPERTIES ===
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Movement")
-	float WalkSpeed = 600;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Movement")
+    float WalkSpeed = 600.f;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Movement")
-	float SprintSpeed = 900;
-
-	// === INPUT ===
-	
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	UInputMappingContext* DefaultMappingContext;
-	
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	UInputAction* MoveIA;
-
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	UInputAction* LookIA;
-
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	UInputAction* JumpIA;
-
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	UInputAction* SprintIA;
-
-	UPROPERTY(EditDefaultsOnly, Category="Input")
-	UInputAction* InteractIA;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Movement")
+    float SprintSpeed = 900.f;
 };

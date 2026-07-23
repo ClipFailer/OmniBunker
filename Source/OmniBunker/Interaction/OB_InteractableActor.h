@@ -29,11 +29,16 @@ protected:
 
 	virtual void Interact_Implementation(ACharacter* Interactor) override;
 
+	void PlayWidgetClickAnim();
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Mesh")
 	UStaticMeshComponent* MeshComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     UWidgetComponent* InteractionWidgetComp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Interaction")
+	bool bCanInteract = true;
 
 private:
 	UPROPERTY()
