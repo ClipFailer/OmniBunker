@@ -43,11 +43,13 @@ void UOB_HotbarWidget::UpdateSlot(int32 SlotIndex, const FOB_InventorySlot& Slot
 }
 
 void UOB_HotbarWidget::SetSelectedSlot(int32 InSelectedSlotIndex) {
-	
+	if (!InventoryComp) return;
+
     int32 TargetIndex = (InSelectedSlotIndex > 0) ? (InSelectedSlotIndex - 1) : INDEX_NONE;
 
     if (TargetIndex != INDEX_NONE && TargetIndex == SelectedSlotIndex) {
         TargetIndex = INDEX_NONE;
+		InventoryComp->RemoveFromHand();
     }
 
     if (Slots.IsValidIndex(SelectedSlotIndex)) {
@@ -59,6 +61,8 @@ void UOB_HotbarWidget::SetSelectedSlot(int32 InSelectedSlotIndex) {
     if (Slots.IsValidIndex(SelectedSlotIndex)) {
         Slots[SelectedSlotIndex]->PlaySelectAnim(false);
     }
+	
+	InventoryComp->TakeToHand(SelectedSlotIndex);
 
     UE_LOG(LogTemp, Warning, TEXT("Current Selected Slot: %d"), SelectedSlotIndex);
 }

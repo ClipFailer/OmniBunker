@@ -5,6 +5,7 @@
 #include "Components/WidgetComponent.h"
 #include "GameFramework/Character.h"
 #include "../UI/InteractionHintWidget.h"
+#include "../Interaction/OB_Condition.h"
 
 AOB_InteractableActor::AOB_InteractableActor()
 {
@@ -21,8 +22,6 @@ AOB_InteractableActor::AOB_InteractableActor()
 	);
 	InteractionWidgetComp->SetupAttachment(RootComponent);
 	InteractionWidgetComp->SetWidgetSpace(EWidgetSpace::Screen);
-
-	
 }
 
 void AOB_InteractableActor::ShowInteractionHint_Implementation() {	
@@ -39,6 +38,18 @@ void AOB_InteractableActor::HideInteractionHint_Implementation() {
 		InteractionWidgetInstance->PlayAppearAnim(true);
 }
 
+bool AOB_InteractableActor::CanInteract(AActor* Interactor) const {
+	for (const UOB_Condition* Condition : InteractionConditions)
+    {
+        if (Condition && !Condition->Check(Interactor))
+        {
+            return false; 
+        }
+    }
+
+    return true;
+}
+
 void AOB_InteractableActor::BeginPlay()
 {
 	Super::BeginPlay();
@@ -50,12 +61,19 @@ void AOB_InteractableActor::BeginPlay()
 		// InteractionWidgetInstance->SetRenderOpacity(0.f);	
 	InteractionWidgetComp->SetVisibility(false);
 
+	MeshComponent->SetSimulatePhysics(bSimulatePhysics);
 }
 
 void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {
 	if (!Interactor) return;
         
 	PlayWidgetClickAnim();
+
+	if (!CanInteract(Interactor)) {
+		UE_LOG(LogTemp, Warning, TEXT("Interaction failed: Conditions not met!"));
+
+		return;
+	}
 
 	if (!bCanInteract) return;
 

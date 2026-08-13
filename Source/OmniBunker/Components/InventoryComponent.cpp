@@ -3,6 +3,8 @@
 
 #include "InventoryComponent.h"
 #include "../Data/OB_InventoryItemData.h"
+#include "../Interaction/OB_InventoryActor.h"
+#include "GameFramework/Character.h"
 
 UInventoryComponent::UInventoryComponent()
 {
@@ -36,7 +38,7 @@ bool UInventoryComponent::AddItem(UOB_InventoryItemData* InItemData, const int32
 
 	while (LeftToAdd > 0) {
 		int32 EmptySlotIndex = FindEmptySlot();
-		if (EmptySlotIndex == INDEX_NONE) return false;
+		if (EmptySlotIndex == INDEX_NONE) break;
 
 		int32 AmountToAdd = FMath::Min(LeftToAdd, InItemData->MaxStackSize);
 
@@ -67,6 +69,92 @@ bool UInventoryComponent::UseItemAtSlot(const int32 SlotIndex) {
 	return false;
 }
 
+void UInventoryComponent::TakeToHand(int32 ItemIndex) {
+	if (!InventorySlots.IsValidIndex(ItemIndex)) return;
+
+	const FOB_InventorySlot& Slot = InventorySlots[ItemIndex];
+	if (Slot.IsEmpty()) {
+		RemoveFromHand();
+		return;
+	}
+
+	RemoveFromHand();
+
+	if (!Slot.ItemData->WorldPresentetionClass) return;
+
+	AActor* OwnerActor = GetOwner();
+    if (!OwnerActor) return;
+
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Owner = OwnerActor;
+	SpawnParams.Instigator = Cast<APawn>(OwnerActor);
+	
+	SelectedItem = OwnerActor->GetWorld()->SpawnActor<AOB_InventoryActor>(
+        Slot.ItemData->WorldPresentetionClass,
+        OwnerActor->GetActorTransform(),
+        SpawnParams
+    );
+
+	if (SelectedItem) {
+		SelectedItemIndex = ItemIndex;
+
+		SelectedItem->SetActorEnableCollision(false);
+		SelectedItem->DisableComponentsSimulatePhysics();
+
+		if (ACharacter* CharacterOwner = Cast<ACharacter>(OwnerActor)) {
+			SelectedItem->AttachToComponent(
+				CharacterOwner->GetMesh(),
+				FAttachmentTransformRules::SnapToTargetNotIncludingScale,
+				TEXT("RightHandSocket")
+			);
+		}
+	}
+}
+
+void UInventoryComponent::RemoveFromHand() {
+	if (SelectedItem == nullptr) return; 
+
+	SelectedItem->Destroy();
+	SelectedItem = nullptr;
+}
+
+void UInventoryComponent::Drop() {
+	if (!SelectedItem || SelectedItemIndex == INDEX_NONE) return;
+
+    const int32 DroppedSlotIndex = SelectedItemIndex;
+
+    SelectedItem->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+    SelectedItem->SetActorEnableCollision(true);
+
+    TArray<UPrimitiveComponent*> PrimComponents;
+    SelectedItem->GetComponents<UPrimitiveComponent>(PrimComponents);
+    for (UPrimitiveComponent* PrimComp : PrimComponents) {
+        if (PrimComp) {
+            PrimComp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+            PrimComp->SetSimulatePhysics(true);
+            PrimComp->SetEnableGravity(true);
+        }
+    }
+
+    if (AActor* OwnerActor = GetOwner()) {
+        FVector Impulse = OwnerActor->GetActorForwardVector() * 250.f + FVector(0.f, 0.f, 80.f);
+        if (UPrimitiveComponent* RootPrim = Cast<UPrimitiveComponent>(SelectedItem->GetRootComponent())) {
+            RootPrim->AddImpulse(Impulse, NAME_None, true);
+        }
+    }
+
+    SelectedItem = nullptr;
+    SelectedItemIndex = INDEX_NONE;
+
+    RemoveItemFromSlot(DroppedSlotIndex, 1);
+
+    if (!InventorySlots[DroppedSlotIndex].IsEmpty()) {
+        TakeToHand(DroppedSlotIndex);
+    } 
+    else {
+        OnSelectedSlotChanged.Broadcast(INDEX_NONE);
+    }
+}
 
 void UInventoryComponent::BeginPlay()
 {
@@ -92,3 +180,21 @@ int32 UInventoryComponent::FindStackableSlot(UOB_InventoryItemData* InItemData) 
 	return INDEX_NONE;
 }
 
+bool UInventoryComponent::HasItem(UOB_InventoryItemData* ItemData, int32 QuantityRequired) const {
+	if (!ItemData || QuantityRequired <= 0) return false;
+
+    return GetItemQuantity(ItemData) >= QuantityRequired;
+}
+
+int32 UInventoryComponent::GetItemQuantity(UOB_InventoryItemData* ItemData) const {
+	if (!ItemData) return 0;
+
+	int32 TotalCount = 0;
+
+	for (const FOB_InventorySlot& Slot : InventorySlots) {
+		if (Slot.ItemData == ItemData)
+			TotalCount += Slot.Quantity;
+	}
+
+	return TotalCount;
+}

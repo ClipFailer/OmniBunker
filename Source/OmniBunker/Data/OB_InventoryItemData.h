@@ -6,6 +6,8 @@
 #include "Engine/DataAsset.h"
 #include "OB_InventoryItemData.generated.h"
 
+class AOB_InventoryActor;
+
 /**
  * 
  */
@@ -15,6 +17,10 @@ class OMNIBUNKER_API UOB_InventoryItemData : public UPrimaryDataAsset
 	GENERATED_BODY()
 	
 public:
+
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Item Logic")
+    void UseItem(AActor* InventoryOwner);
+    virtual void UseItem_Implementation(AActor* InventoryOwner) {}
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Info")
     FText ItemName;
@@ -31,7 +37,6 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Info", meta = (EditCondition = "bIsStackable"))
     int32 MaxStackSize = 1;
 
-    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Item Logic")
-    void UseItem(AActor* InventoryOwner);
-    virtual void UseItem_Implementation(AActor* InventoryOwner) {}
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Info")
+    TSubclassOf<AOB_InventoryActor> WorldPresentetionClass;
 };

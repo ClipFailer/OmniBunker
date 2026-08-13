@@ -50,6 +50,7 @@ protected:
 	void StopJump(const FInputActionValue& Value);
 	void Interact(const FInputActionValue& Value);
 	void SelectHotbarSlot(const FInputActionValue& Value);
+	void DropSlot(const FInputActionValue& Value);
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	UInputMappingContext* DefaultMappingContext;
@@ -72,4 +73,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	UInputAction* SelectHotbarSlotIA;
 
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	UInputAction* DropSlotIA;
 };

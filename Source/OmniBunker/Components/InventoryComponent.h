@@ -6,10 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
-
 class UOB_InventoryItemData;
-
-
+class AOB_InventoryActor;
 
 USTRUCT(BlueprintType)
 struct FOB_InventorySlot {
@@ -64,6 +62,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Inventory")
 	const TArray<FOB_InventorySlot>& GetInventorySlots() const { return InventorySlots; }
 
+	void TakeToHand(int32 ItemIndex);
+	void RemoveFromHand();
+	void Drop();
+
 	UPROPERTY(BlueprintAssignable, Category = "Inventory")
 	FOnInventorySlotUpdated OnInventorySlotUpdated;
 
@@ -88,6 +90,12 @@ protected:
 	 */
 	int32 FindStackableSlot(UOB_InventoryItemData* InItemData);
 
+	UFUNCTION(BlueprintCallable)
+	bool HasItem(UOB_InventoryItemData* ItemData, int32 QuantityRequired = 1) const;
+
+	UFUNCTION(BlueprintCallable)
+	int32 GetItemQuantity(UOB_InventoryItemData* ItemData) const;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Inventory")
     int32 InventorySize = 20;
 
@@ -95,4 +103,9 @@ private:
 
 	UPROPERTY()
 	TArray<FOB_InventorySlot> InventorySlots;
+
+	UPROPERTY()
+	AOB_InventoryActor* SelectedItem;
+
+	int32 SelectedItemIndex = INDEX_NONE;
 };

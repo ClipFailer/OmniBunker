@@ -12,6 +12,7 @@
 
 class UWidgetComponent;
 class UInteractionHintWidget;
+class UOB_Condition;
 
 UCLASS()
 class OMNIBUNKER_API AOB_InteractableActor : public AActor, public IInteractable
@@ -23,6 +24,12 @@ public:
 
 	virtual void ShowInteractionHint_Implementation() override;
     virtual void HideInteractionHint_Implementation() override;
+
+	UFUNCTION(BlueprintCallable, Category="Conditions")
+	bool CanInteract(AActor* Interactor) const;
+
+	UPROPERTY(EditAnywhere, Instanced, Category = "Interaction|Conditions")
+    TArray<TObjectPtr<UOB_Condition>> InteractionConditions;
 
 protected:
 	virtual void BeginPlay() override;
@@ -39,6 +46,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Interaction")
 	bool bCanInteract = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Physics")
+	bool bSimulatePhysics = true;
 
 private:
 	UPROPERTY()

@@ -82,6 +82,10 @@ void AOB_CharacterController::SetupInputComponent()
         {
             EnhancedIC->BindAction(SelectHotbarSlotIA, ETriggerEvent::Started, this, &ThisClass::SelectHotbarSlot);
         }
+        if (DropSlotIA) 
+        {
+            EnhancedIC->BindAction(DropSlotIA, ETriggerEvent::Started, this, &ThisClass::DropSlot);
+        }
     }
 }
 
@@ -149,4 +153,13 @@ void AOB_CharacterController::SelectHotbarSlot(const FInputActionValue& Value) {
     auto Inventory = IOB_CharacterInterface::Execute_GetInventoryComp(ControlledCharacter);
     if (Inventory)
         Inventory->OnSelectedSlotChanged.Broadcast(SlotIndex);
+}
+
+void AOB_CharacterController::DropSlot(const FInputActionValue& Value) {
+    if (!ControlledCharacter) return;
+
+    auto Inventory = 
+            IOB_CharacterInterface::Execute_GetInventoryComp(ControlledCharacter);
+    if (Inventory)
+        Inventory->Drop();
 }

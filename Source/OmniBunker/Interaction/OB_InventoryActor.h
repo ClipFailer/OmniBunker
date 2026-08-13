@@ -20,6 +20,7 @@ public:
 
 	UOB_InventoryItemData* GetItemData() const { return ItemData; };
 	int32 GetQuantity() const { return Quantity; };
+	void SetQuantity(const int32 NewQuantity) { Quantity = NewQuantity; };
 
 protected:
 	
