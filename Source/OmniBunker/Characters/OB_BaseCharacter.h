@@ -13,6 +13,7 @@ class UOB_HealthComponent;
 class UStaminaComponent;
 class UOB_InteractionComponent;
 class UInventoryComponent;
+class UCharacteristicComponent;
 
 UCLASS()
 class OMNIBUNKER_API AOB_BaseCharacter : public ACharacter, public IOB_CharacterInterface
@@ -58,6 +59,9 @@ protected:
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Inventory")
     TObjectPtr<UInventoryComponent> InventoryComp;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Inventory")
+    TObjectPtr<UCharacteristicComponent> CharacteristicComponent;
 
     // === PROPERTIES ===
 

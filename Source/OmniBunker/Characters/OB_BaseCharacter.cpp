@@ -9,6 +9,7 @@
 #include "../Components/StaminaComponent.h"
 #include "../Components/OB_InteractionComponent.h"
 #include "../Components/InventoryComponent.h"
+#include "../Components/CharacteristicComponent.h"
 #include "../Interaction/OB_InventoryActor.h"
 
 AOB_BaseCharacter::AOB_BaseCharacter()
@@ -23,6 +24,7 @@ AOB_BaseCharacter::AOB_BaseCharacter()
     StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
     InteractionComponent = CreateDefaultSubobject<UOB_InteractionComponent>(TEXT("InteractionComponent"));
     InventoryComp = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComp"));
+    CharacteristicComponent = CreateDefaultSubobject<UCharacteristicComponent>(TEXT("CharacteristicComponent"));
 }
 
 void AOB_BaseCharacter::BeginPlay()
