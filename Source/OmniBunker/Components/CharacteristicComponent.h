@@ -25,6 +25,8 @@ public:
 	UCharacteristicComponent();
 
 	UOB_CharacterCharacteristic* GetCharacteristic(const EOB_CharacteristicType CharacteristicType);
+	int32 GetCharacteristicsCount() const { return Characteristics.Num(); };
+	const TArray<UOB_CharacterCharacteristic*>& GetCharacteristics() const { return Characteristics; }
 
 	void ApplyCharacteristicEffect(const EOB_CharacteristicType CharacteristicType);
 

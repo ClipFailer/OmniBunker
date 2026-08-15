@@ -73,5 +73,5 @@ void UCharacteristicComponent::BeginPlay()
 
 	CachedCharacterOwner = Cast<AOB_BaseCharacter>(GetOwner());
 	
-	GenerateRandomCharacteristics();
+	// GenerateRandomCharacteristics();
 }

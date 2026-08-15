@@ -7,6 +7,7 @@
 #include "OB_PlayerHud.generated.h"
 
 class UOB_HotbarWidget;
+class UCharacteristicMenuWidget;
 class AOB_BaseCharacter;
 
 /**
@@ -21,13 +22,33 @@ public:
 
 	void Init(AOB_BaseCharacter* Character);
 	void SetHotbarVisibility(const bool bVisible);
+	void ToggleCharMenu();
+
 
 protected:
 
+	void ShowCursor();
+	void HideCursor();
+
+	// Hotbar
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UOB_HotbarWidget> HotbarWidget;
 
 	UPROPERTY(Transient, meta = (BindWidgetAnim))
 	TObjectPtr<UWidgetAnimation> HotbarAppearenceAnim;
-	
+
+	// Characteristic menu
+	UFUNCTION()
+	void OnCharMenuAppearenceEnded();
+
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UCharacteristicMenuWidget> CharacteristicMenuWidget;
+
+	bool bIsCharMenuOpen = false;
+
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	TObjectPtr<UWidgetAnimation> CharacteristicMenuWidgetAppearenceAnim;
+
+	UPROPERTY()
+	APlayerController* PlayerController;
 };

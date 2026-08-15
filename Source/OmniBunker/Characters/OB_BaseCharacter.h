@@ -29,6 +29,8 @@ public:
     virtual bool Pickup_Implementation(AOB_InventoryActor* InventoryActor) override;
     virtual UOB_InteractionComponent* GetInteractionComp_Implementation() const override;
 
+    UCharacteristicComponent* GetCharacteristicComp() const { return CharacteristicComponent; };
+
     // Публичные методы выполнения действий
     void Move(const FInputActionValue& Value);
     void Look(const FInputActionValue& Value);

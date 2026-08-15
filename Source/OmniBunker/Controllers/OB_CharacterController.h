@@ -39,7 +39,6 @@ protected:
 	UPROPERTY()
 	TObjectPtr<UOB_PlayerHud> PlayerHudWidget;
 
-
 	// === INPUT ===
 
 	void Move(const FInputActionValue& Value);
@@ -51,6 +50,7 @@ protected:
 	void Interact(const FInputActionValue& Value);
 	void SelectHotbarSlot(const FInputActionValue& Value);
 	void DropSlot(const FInputActionValue& Value);
+	void ToggleCharMenu(const FInputActionValue& Value);
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	UInputMappingContext* DefaultMappingContext;
@@ -75,4 +75,12 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	UInputAction* DropSlotIA;
+
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	UInputAction* ToggleCharMenuIA;
+
+private:
+
+	bool bBlockMovement = false;
+
 };

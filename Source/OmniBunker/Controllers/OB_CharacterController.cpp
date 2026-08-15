@@ -86,11 +86,17 @@ void AOB_CharacterController::SetupInputComponent()
         {
             EnhancedIC->BindAction(DropSlotIA, ETriggerEvent::Started, this, &ThisClass::DropSlot);
         }
+        if (ToggleCharMenuIA) 
+        {
+            EnhancedIC->BindAction(ToggleCharMenuIA, ETriggerEvent::Started, this, &ThisClass::ToggleCharMenu);
+        }
     }
 }
 
 void AOB_CharacterController::Move(const FInputActionValue& Value) 
 {
+    if (bBlockMovement) return;
+    
     if (ControlledCharacter)
     {
         ControlledCharacter->Move(Value);
@@ -99,6 +105,8 @@ void AOB_CharacterController::Move(const FInputActionValue& Value)
 
 void AOB_CharacterController::Look(const FInputActionValue& Value) 
 {
+    if (bBlockMovement) return;
+
     if (ControlledCharacter)
     {
         ControlledCharacter->Look(Value);
@@ -107,6 +115,8 @@ void AOB_CharacterController::Look(const FInputActionValue& Value)
 
 void AOB_CharacterController::StartSprint(const FInputActionValue& Value) 
 {
+    if (bBlockMovement) return;
+
     if (ControlledCharacter)
     {
         ControlledCharacter->StartSprint(Value);
@@ -123,6 +133,8 @@ void AOB_CharacterController::StopSprint(const FInputActionValue& Value)
 
 void AOB_CharacterController::DoJump(const FInputActionValue& Value) 
 {
+    if (bBlockMovement) return;
+
     if (ControlledCharacter)
     {
         ControlledCharacter->DoJump(Value);
@@ -139,6 +151,8 @@ void AOB_CharacterController::StopJump(const FInputActionValue& Value)
 
 void AOB_CharacterController::Interact(const FInputActionValue& Value) 
 {
+    if (bBlockMovement) return;
+
     if (ControlledCharacter)
     {
         ControlledCharacter->Interact(Value);
@@ -146,6 +160,8 @@ void AOB_CharacterController::Interact(const FInputActionValue& Value)
 }
 
 void AOB_CharacterController::SelectHotbarSlot(const FInputActionValue& Value) {
+    if (bBlockMovement) return;
+
     if (!ControlledCharacter) return;
     
     int32 SlotIndex = FMath::RoundToInt(Value.Get<float>());
@@ -156,10 +172,20 @@ void AOB_CharacterController::SelectHotbarSlot(const FInputActionValue& Value) {
 }
 
 void AOB_CharacterController::DropSlot(const FInputActionValue& Value) {
+    if (bBlockMovement) return;
+
     if (!ControlledCharacter) return;
 
     auto Inventory = 
             IOB_CharacterInterface::Execute_GetInventoryComp(ControlledCharacter);
     if (Inventory)
         Inventory->Drop();
+}
+
+void AOB_CharacterController::ToggleCharMenu(const FInputActionValue& Value) {
+    if (!ControlledCharacter) return;
+
+   PlayerHudWidget->ToggleCharMenu();
+
+   bBlockMovement = !bBlockMovement;
 }
