@@ -31,6 +31,8 @@ public:
 	UPROPERTY(EditAnywhere, Instanced, Category = "Interaction|Conditions")
     TArray<TObjectPtr<UOB_Condition>> InteractionConditions;
 
+	float GetSpawnWeight() const { return SpawnWeight; };
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -49,6 +51,12 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Physics")
 	bool bSimulatePhysics = true;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Spawn Settings", meta = (ClampMin = "0.1"))
+	float SpawnWeight;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Phisics", meta = (ClampMin = "0.1"))
+	float Weight;
 
 private:
 	UPROPERTY()
