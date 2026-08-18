@@ -13,6 +13,8 @@ void AOB_CharacterController::BeginPlay()
 {
     Super::BeginPlay();
 
+    if (!IsLocalController()) return;
+
     if (ULocalPlayer* LocalPlayer = GetLocalPlayer())
     {
         if (UEnhancedInputLocalPlayerSubsystem* EnhancedSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer)) 
@@ -30,9 +32,11 @@ void AOB_CharacterController::BeginPlay()
         if (PlayerHudWidget) {
             PlayerHudWidget->AddToPlayerScreen();
 
-            if (ControlledCharacter) {
+            if (AOB_BaseCharacter* BaseChar = GetPawn<AOB_BaseCharacter>()) 
+            {
+                ControlledCharacter = BaseChar;
                 PlayerHudWidget->Init(ControlledCharacter);
-            }   
+            }
         }
     }
 }
@@ -44,9 +48,9 @@ void AOB_CharacterController::OnPossess(APawn* InPawn)
     if (!InPawn) return;
     
     ControlledCharacter = Cast<AOB_BaseCharacter>(InPawn);
-    if (PlayerHudWidget && ControlledCharacter)
-    {
-        PlayerHudWidget->Init(ControlledCharacter);
+
+    if (PlayerHudWidget && ControlledCharacter){
+            PlayerHudWidget->Init(ControlledCharacter);
     }
 }
 
@@ -183,7 +187,7 @@ void AOB_CharacterController::DropSlot(const FInputActionValue& Value) {
 }
 
 void AOB_CharacterController::ToggleCharMenu(const FInputActionValue& Value) {
-    if (!ControlledCharacter) return;
+    if (!ControlledCharacter || !PlayerHudWidget) return;
 
    PlayerHudWidget->ToggleCharMenu();
 

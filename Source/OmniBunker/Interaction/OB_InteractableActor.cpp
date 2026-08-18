@@ -16,15 +16,38 @@ AOB_InteractableActor::AOB_InteractableActor()
 	MeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	MeshComponent->SetCollisionObjectType(ECC_InteractionObject);
 	MeshComponent->SetCollisionResponseToChannel(ECC_InteractionTrace, ECR_Block);
+	MeshComponent->SetGenerateOverlapEvents(true);
+    MeshComponent->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Overlap);
 
 	InteractionWidgetComp = CreateDefaultSubobject<UWidgetComponent>(
 		TEXT("InteractionHint")
 	);
 	InteractionWidgetComp->SetupAttachment(RootComponent);
+	
+
+	static ConstructorHelpers::FClassFinder<UInteractionHintWidget> WidgetClassFinder(
+		TEXT("/Game/_OmniBunker/UI/Interaction/WBP_InteractionHint")
+	);
+	if (WidgetClassFinder.Succeeded()) {
+		InteractionWidgetClass = WidgetClassFinder.Class;
+	} else {
+		UE_LOG(
+			LogTemp, 
+			Error, 
+			TEXT("AOB_InteractableActor::AOB_InteractableActor(): Failed to find default HintUI class")
+		);
+		InteractionWidgetClass = UInteractionHintWidget::StaticClass();
+	}
+
+	InteractionWidgetComp->SetWidgetClass(InteractionWidgetClass);
 	InteractionWidgetComp->SetWidgetSpace(EWidgetSpace::Screen);
+	InteractionWidgetComp->SetDrawSize(FVector2D(80.f, 80.f));
+
 }
 
-void AOB_InteractableActor::ShowInteractionHint_Implementation() {	
+void AOB_InteractableActor::ShowInteractionHint_Implementation() {
+	if (!bCanHighlight) return;
+
 	if (!InteractionWidgetComp->IsWidgetVisible())
 		InteractionWidgetComp->SetVisibility(true);
 	
@@ -33,6 +56,7 @@ void AOB_InteractableActor::ShowInteractionHint_Implementation() {
 }
 
 void AOB_InteractableActor::HideInteractionHint_Implementation() {
+	if (!bCanHighlight) return;
 
 	if (InteractionWidgetInstance)
 		InteractionWidgetInstance->PlayAppearAnim(true);
@@ -48,6 +72,14 @@ bool AOB_InteractableActor::CanInteract(AActor* Interactor) const {
     }
 
     return true;
+}
+
+void AOB_InteractableActor::DisableInteraction() {
+	bCanInteract = false;
+	bCanHighlight = false;
+
+	if (InteractionWidgetComp->IsWidgetVisible())
+		InteractionWidgetComp->SetVisibility(false);
 }
 
 void AOB_InteractableActor::BeginPlay()
@@ -87,5 +119,7 @@ void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {
 }
 
 void AOB_InteractableActor::PlayWidgetClickAnim() {
-	InteractionWidgetInstance->PlayClickAnim();
+	if (IsValid(InteractionWidgetInstance)) {
+		InteractionWidgetInstance->PlayClickAnim();
+	}
 }

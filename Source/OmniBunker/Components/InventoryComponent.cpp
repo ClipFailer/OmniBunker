@@ -143,10 +143,18 @@ void UInventoryComponent::Drop() {
         }
     }
 
+	UOB_InventoryItemData* ItemData = SelectedItem->GetItemData();
+	if (ItemData) {
+		if (ItemData->bDropAllStack) {
+				int32 CurrentQuantity = InventorySlots[DroppedSlotIndex].Quantity;
+				RemoveItemFromSlot(DroppedSlotIndex, CurrentQuantity);
+		}
+	} else {
+		RemoveItemFromSlot(DroppedSlotIndex, 1);
+	}
+
     SelectedItem = nullptr;
     SelectedItemIndex = INDEX_NONE;
-
-    RemoveItemFromSlot(DroppedSlotIndex, 1);
 
     if (!InventorySlots[DroppedSlotIndex].IsEmpty()) {
         TakeToHand(DroppedSlotIndex);

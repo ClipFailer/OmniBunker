@@ -34,7 +34,20 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Info")
     bool bIsStackable = false;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Info", meta = (EditCondition = "bIsStackable"))
+    UPROPERTY(
+        EditAnywhere, 
+        BlueprintReadWrite, 
+        Category = "Item Info",
+        meta = (EditCondition = "bIsStackable")
+    )
+    bool bDropAllStack = false;
+
+    UPROPERTY(
+        EditDefaultsOnly, 
+        BlueprintReadOnly, 
+        Category = "Item Info", 
+        meta = (EditCondition = "bIsStackable")
+    )
     int32 MaxStackSize = 1;
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Info")

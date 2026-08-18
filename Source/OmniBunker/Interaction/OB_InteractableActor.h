@@ -33,6 +33,9 @@ public:
 
 	float GetSpawnWeight() const { return SpawnWeight; };
 
+	UFUNCTION(BlueprintCallable, Category="Interaction")
+	void DisableInteraction();
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -46,6 +49,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     UWidgetComponent* InteractionWidgetComp;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Interaction|UI")
+	TSubclassOf<UInteractionHintWidget> InteractionWidgetClass;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Interaction")
 	bool bCanInteract = true;
 
@@ -53,10 +59,12 @@ protected:
 	bool bSimulatePhysics = true;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Spawn Settings", meta = (ClampMin = "0.1"))
-	float SpawnWeight;
+	float SpawnWeight = 1;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Phisics", meta = (ClampMin = "0.1"))
 	float Weight;
+
+	bool bCanHighlight = true;
 
 private:
 	UPROPERTY()

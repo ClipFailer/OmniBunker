@@ -16,6 +16,8 @@ AOB_BaseCharacter::AOB_BaseCharacter()
 {
     PrimaryActorTick.bCanEverTick = false;
 
+    // bReplicates = true;
+
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
     Camera->SetupAttachment(GetCapsuleComponent());
     Camera->bUsePawnControlRotation = true;
@@ -30,6 +32,14 @@ AOB_BaseCharacter::AOB_BaseCharacter()
 void AOB_BaseCharacter::BeginPlay()
 {
     Super::BeginPlay();
+
+    UE_LOG(
+        LogTemp, 
+        Display, 
+        TEXT("Character BeginPlay: %s, Controller: %s"), 
+        *GetName(), 
+        *GetNameSafe(GetController())
+    );
 
     if (StaminaComponent) 
     {
