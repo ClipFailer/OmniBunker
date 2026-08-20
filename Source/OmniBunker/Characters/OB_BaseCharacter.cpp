@@ -16,7 +16,7 @@ AOB_BaseCharacter::AOB_BaseCharacter()
 {
     PrimaryActorTick.bCanEverTick = false;
 
-    // bReplicates = true;
+    bReplicates = true;
 
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
     Camera->SetupAttachment(GetCapsuleComponent());
@@ -70,6 +70,24 @@ UOB_InteractionComponent* AOB_BaseCharacter::GetInteractionComp_Implementation()
 void AOB_BaseCharacter::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+}
+
+void AOB_BaseCharacter::Server_Interact_Implementation(AActor* Target) {
+    if (!IsValid(InteractionComponent)) return;
+    
+    if (!IsValid(Target)) return;
+
+    if (!Target->Implements<UInteractable>()) return;
+
+    AActor* ServerTarget = InteractionComponent->DoInteractionTrace_Server();
+
+    if (!IsValid(ServerTarget)) return;
+
+    if (Target != ServerTarget) return;
+
+    if (!IInteractable::Execute_CanInteract(ServerTarget, this)) return;
+
+    IInteractable::Execute_Interact(ServerTarget, this);
 }
 
 void AOB_BaseCharacter::Move(const FInputActionValue& Value) 
@@ -143,8 +161,9 @@ void AOB_BaseCharacter::DoJump(const FInputActionValue& Value)
 
 void AOB_BaseCharacter::Interact(const FInputActionValue& Value) 
 {
-    if (InteractionComponent) 
-    {
+    if (!IsLocallyControlled()) return;
+
+    if (InteractionComponent)  {
         InteractionComponent->Interact();
     }
 }

@@ -24,7 +24,7 @@ public:
 
 protected:
 	
-	virtual void Interact_Implementation(ACharacter* Interactor) override;
+	virtual void OnInteract_Implementation(ACharacter* Interactor) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Data")
 	UOB_InventoryItemData* ItemData;

@@ -5,7 +5,7 @@
 #include "GameFramework/Character.h"
 #include "Camera/CameraComponent.h"
 #include "../Interfaces/Interactable.h"
-#include "DrawDebugHelpers.h" 
+#include "../Characters/OB_BaseCharacter.h"
 #include "Components/BoxComponent.h"
 
 UOB_InteractionComponent::UOB_InteractionComponent()
@@ -23,16 +23,68 @@ UOB_InteractionComponent::UOB_InteractionComponent()
 }
 
 void UOB_InteractionComponent::Interact() {
-	if (!CurrentTargetActor) return;
+	if (!CurrentTargetActor || !Owner) return;
 
-	IInteractable::Execute_Interact(CurrentTargetActor, Cast<ACharacter>(GetOwner()));
+	if (CurrentTargetActor->Implements<UInteractable>()) {
+        IInteractable::Execute_PlayWidgetClickAnim(CurrentTargetActor);
+    }
+
+	Owner->Server_Interact(CurrentTargetActor);
+}
+
+bool UOB_InteractionComponent::IsTargetActorNearToPlayer() const {
+	if (!IsValid(CurrentTargetActor)) return false;
+	
+	return InteractablesInRange.Find(CurrentTargetActor) ? true : false;
+}
+
+AActor* UOB_InteractionComponent::DoInteractionTrace_Server() {
+
+	if (!GetOwner() || !GetOwner()->HasAuthority()) return nullptr;
+
+    ACharacter* OwnerCharacter = Cast<ACharacter>(GetOwner());
+    if (!OwnerCharacter) return nullptr;
+
+    FVector Start = OwnerCharacter->GetActorLocation() + FVector(0, 0, OwnerCharacter->BaseEyeHeight);
+    FVector End = Start + (OwnerCharacter->GetActorForwardVector() * TraceDistance);
+
+    FHitResult Hit;
+    FCollisionQueryParams QueryParams;
+    QueryParams.AddIgnoredActor(OwnerCharacter);
+
+    FCollisionResponseParams ResponseParams;
+    ResponseParams.CollisionResponse.SetAllChannels(ECR_Ignore);
+    ResponseParams.CollisionResponse.SetResponse(ECC_InteractionObject, ECR_Block);
+
+    bool bHit = GetWorld()->SweepSingleByChannel(
+        Hit,
+        Start,
+        End,
+        FQuat::Identity,
+        ECC_InteractionTrace,
+        FCollisionShape::MakeSphere(TraceRadius),
+        QueryParams,
+        ResponseParams
+    );
+
+    if (!bHit) return nullptr;
+
+    AActor* Target = Hit.GetActor();
+    if (Target && Target->Implements<UInteractable>())
+        return Target;
+
+    return nullptr;
 }
 
 void UOB_InteractionComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (AActor* Owner = GetOwner()) {
+	Owner = Cast<AOB_BaseCharacter>(GetOwner());
+
+	if (!Owner || !Owner->IsLocallyControlled()) { return; }
+
+	if (Owner) {
 		if (USceneComponent* Root = Owner->GetRootComponent()) {
 			InteractionZone->AttachToComponent(
 				Root, 
@@ -50,14 +102,13 @@ void UOB_InteractionComponent::BeginPlay()
 		&ThisClass::OnEndOverlapInteractionObject
 	);
 
-	SetComponentTickEnabled(false);
 }
 
 void UOB_InteractionComponent::DoInteractionTrace() {
-	ACharacter* OwnerCharacter = Cast<ACharacter>(GetOwner());
-	if (!OwnerCharacter) return;
 
-	UCameraComponent* Camera = OwnerCharacter->FindComponentByClass<UCameraComponent>();
+	if (!Owner || !Owner->IsLocallyControlled()) return;
+
+	UCameraComponent* Camera = Owner->FindComponentByClass<UCameraComponent>();
 	if (!Camera) return;
 
 	FVector TraceStart = Camera->GetComponentLocation();
@@ -65,7 +116,7 @@ void UOB_InteractionComponent::DoInteractionTrace() {
 
 	FHitResult Hit;
 	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(OwnerCharacter);
+	QueryParams.AddIgnoredActor(Owner);
 
 	FCollisionResponseParams ResponseParams;
 	ResponseParams.CollisionResponse.SetAllChannels(ECR_Ignore);
@@ -136,6 +187,8 @@ void UOB_InteractionComponent::OnStartOverlapInteractionObject(
 ) {
 	if (OtherActor && OtherActor->Implements<UInteractable>()) {
 		InteractablesInRangeCount++;
+
+		InteractablesInRange.Add(OtherActor);
 
 		UE_LOG(
 			LogTemp, 

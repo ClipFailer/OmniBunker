@@ -1,0 +1,225 @@
+# ============================================================================
+# Doxygen configuration for OmniBunker (Unreal Engine 5.7 C++)
+# ============================================================================
+
+PROJECT_NAME           = "OmniBunker UE5 C++ Проект"
+PROJECT_BRIEF          = "Документация исходного кода проекта"
+PROJECT_NUMBER         = "1.0"
+
+# ----------------------------------------------------------------------------
+# INPUT
+# ----------------------------------------------------------------------------
+
+INPUT                  = ./Source
+RECURSIVE              = YES
+
+FILE_PATTERNS          = *.h *.hpp *.cpp *.cc *.cxx
+
+EXCLUDE_PATTERNS       = */Binaries/* */Build/* */Intermediate/* */Saved/* */DerivedDataCache/* */.git/* */docs/* */ThirdParty/*
+
+# ----------------------------------------------------------------------------
+# INCLUDE PATHS (Unreal Engine 5.7)
+# ----------------------------------------------------------------------------
+
+INCLUDE_PATH          = "./Source" \
+                        "./Source/OmniBunker" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/GameFramework" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/InputCore/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/UMG/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/ApplicationCore/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/SlateCore/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Slate/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/GameplayTags/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/NavigationSystem/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/AIModule/Public" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Intermediate/Build/Win64/UnrealEditor/Inc/Engine" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Intermediate/Build/Win64/UnrealEditor/Inc/CoreUObject" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Intermediate/Build/Win64/UnrealEditor/Inc/UMG" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Intermediate/Build/Win64/UnrealEditor/Inc/InputCore" \
+                        "C:/Program Files/Epic Games/UE_5.7/Engine/Intermediate/Build/Win64/UnrealEditor/Inc/SlateCore"
+
+# ----------------------------------------------------------------------------
+# PARSING
+# ----------------------------------------------------------------------------
+
+EXTENSION_MAPPING      = h=C++ hpp=C++ cpp=C++ cc=C++ cxx=C++
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+HIDE_UNDOC_RELATIONS   = NO
+
+# ----------------------------------------------------------------------------
+# MACROS (Unreal Engine support)
+#
+# Правила:
+#   1. UE-макросы с аргументами разворачиваем в пустоту — парсер их не понимает.
+#   2. GENERATED_BODY и его варианты — тоже в пустоту.
+#   3. Шаблонные контейнеры (TArray, TMap и т.д.) заменяем на стандартные
+#      аналоги, иначе Doxygen ломается на угловых скобках после пустой замены.
+#   4. Базовые классы UE (AActor, UObject и т.д.) НЕ трогаем — пусть
+#      Doxygen видит их как обычные C++ классы и строит граф наследования.
+# ----------------------------------------------------------------------------
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+EXPAND_AS_DEFINED      = UCLASS USTRUCT UENUM UPROPERTY UFUNCTION UINTERFACE GENERATED_BODY GENERATED_UCLASS_BODY GENERATED_USTRUCT_BODY
+
+PREDEFINED             = "UCLASS()=" \
+                         "UCLASS(...)=" \
+                         "USTRUCT()=" \
+                         "USTRUCT(...)=" \
+                         "UENUM()=" \
+                         "UENUM(...)=" \
+                         "UPROPERTY()=" \
+                         "UPROPERTY(...)=" \
+                         "UFUNCTION()=" \
+                         "UFUNCTION(...)=" \
+                         "UINTERFACE()=" \
+                         "UINTERFACE(...)=" \
+                         "GENERATED_BODY()=" \
+                         "GENERATED_UCLASS_BODY()=" \
+                         "GENERATED_USTRUCT_BODY()=" \
+                         "GENERATED_UENUM_BODY()=" \
+                         "UE_API=" \
+                         "OMNIBUNKER_API=" \
+                         "FORCEINLINE=inline" \
+                         "DEFINE_LOG_CATEGORY_STATIC(...)=" \
+                         "DEFINE_LOG_CATEGORY(...)=" \
+                         "DECLARE_LOG_CATEGORY_EXTERN(...)=" \
+                         "UE_NODISCARD=" \
+                         "FUNC_DECL=" \
+                         "VIRTUAL=virtual" \
+                         "ABSTRACT=" \
+                         "OVERRIDE=override" \
+                         "FINAL=final" \
+                         "TArray=std::vector" \
+                         "TMap=std::map" \
+                         "TSet=std::set" \
+                         "TObjectPtr=std::shared_ptr" \
+                         "TSubclassOf=class" \
+                         "TSoftObjectPtr=class" \
+                         "TWeakObjectPtr=std::weak_ptr" \
+                         "TSharedPtr=std::shared_ptr" \
+                         "TSharedRef=std::shared_ptr" \
+                         "TUniquePtr=std::unique_ptr" \
+                         "TOptional=std::optional" \
+                         "TEXT(x)=x"
+
+SKIP_FUNCTION_MACROS   = YES
+
+# ----------------------------------------------------------------------------
+# COMMENTS / LANGUAGE
+# ----------------------------------------------------------------------------
+
+OUTPUT_LANGUAGE        = Russian
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+MULTILINE_CPP_IS_BRIEF = NO
+INPUT_ENCODING         = UTF-8
+
+# ----------------------------------------------------------------------------
+# WARNINGS
+# ----------------------------------------------------------------------------
+
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = NO
+WARN_NO_PARAMDOC       = NO
+WARN_AS_ERROR          = NO
+
+# ----------------------------------------------------------------------------
+# HTML
+# ----------------------------------------------------------------------------
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = docs/html
+HTML_DYNAMIC_MENUS     = YES
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = YES
+DISABLE_INDEX          = NO
+ENUM_VALUES_PER_LINE   = 4
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+HTML_COLORSTYLE        = DARK
+HTML_EXTRA_STYLESHEET  = custom.css
+HTML_COLORSTYLE_HUE    = 220
+
+GENERATE_HTMLHELP      = NO
+GENERATE_CHI           = NO
+GENERATE_ECLIPSEHELP   = NO
+GENERATE_QHP           = NO
+GENERATE_DOCSET        = NO
+
+# ----------------------------------------------------------------------------
+# NAVIGATION / SORTING
+# ----------------------------------------------------------------------------
+
+SORT_MEMBER_DOCS       = NO
+SORT_BRIEF_DOCS        = NO
+SORT_MEMBERS_CTORS_1ST = YES
+SORT_GROUP_NAMES       = NO
+SORT_BY_SCOPE_NAME     = YES
+
+# ----------------------------------------------------------------------------
+# GRAPHS (Graphviz)
+# Если установлен Graphviz — выставьте HAVE_DOT = YES для графов наследования
+# ----------------------------------------------------------------------------
+
+HAVE_DOT               = NO
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+GROUP_GRAPHS           = YES
+UML_LOOK               = YES
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+
+# ----------------------------------------------------------------------------
+# LATEX / OTHER OUTPUT
+# ----------------------------------------------------------------------------
+
+GENERATE_LATEX         = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+GENERATE_XML           = NO
+
+# ----------------------------------------------------------------------------
+# FILES
+# ----------------------------------------------------------------------------
+
+CREATE_SUBDIRS         = NO
+DIRECTORY_GRAPH        = YES
+SHOW_FILES             = YES
+SHOW_NAMESPACES        = YES
+
+# ----------------------------------------------------------------------------
+# SOURCE BROWSER
+# ----------------------------------------------------------------------------
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+# ----------------------------------------------------------------------------
+# HTML footer/header
+# ----------------------------------------------------------------------------
+
+HTML_HEADER            =
+HTML_FOOTER            =
+HTML_EXTRA_FILES       =

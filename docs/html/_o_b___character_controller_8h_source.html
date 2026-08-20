@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Исходный файл Source/OmniBunker/Controllers/OB_CharacterController.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_o_b___character_controller_8h_source.html','',''); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">OB_CharacterController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_o_b___character_controller_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (c) 2026 OmniBunker Team. All rights reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;GameFramework/PlayerController.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;OB_CharacterController.generated.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span>UInputMappingContext;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span>UInputAction;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="class_a_o_b___base_character.html">AOB_BaseCharacter</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="class_u_o_b___player_hud.html">UOB_PlayerHud</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">struct </span>FInputActionValue;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"></span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>UCLASS()</div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html">   20</a></span>class OMNIBUNKER_API <a class="code hl_class" href="class_a_o_b___character_controller.html">AOB_CharacterController</a> : public <a class="code hl_class" href="class_a_player_controller.html">APlayerController</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a6fec20d3caa8ae52bacafd4fb7cd694f">BeginPlay</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#add4d5eea07376fd907f0537fcad5228a">OnPossess</a>(APawn* InPawn) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a9ddad02bcf6a1f283ef91a66e43e50fc">SetupInputComponent</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">   32</a></span>    TObjectPtr&lt;AOB_BaseCharacter&gt; <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// === UI ===</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category=<span class="stringliteral">&quot;UI&quot;</span>)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a41cf31f68832a68b123209c0d522f015">   37</a></span>    TSubclassOf&lt;<a class="code hl_class" href="class_u_o_b___player_hud.html">UOB_PlayerHud</a>&gt; <a class="code hl_variable" href="class_a_o_b___character_controller.html#a41cf31f68832a68b123209c0d522f015">HudWidgetClass</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    UPROPERTY()</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">   40</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_o_b___player_hud.html">UOB_PlayerHud</a>&gt; <a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// === INPUT ===</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a72909a4f1a77faabfe1c856f3214e289">Move</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#af3669779eb6516bb60f26e042638d688">Look</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a99e4321e87c19d13c4d97c3305c7bf7a">StartSprint</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a1c5f99fc4acff5460fee8458bed0ba64">StopSprint</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#ad812e7623d60b78de27ccdb732114668">DoJump</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a0df75bf605d1aaa2157f0c0d996ed723">StopJump</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a0a8d8fbb57843fb9822ed0554e7c6a27">Interact</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a1d737d6b213ce0f914945e87a21d1de6">SelectHotbarSlot</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a2f79dc27a41aa6547a498106b813cd06">DropSlot</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#aadb357248cd5432becbc1c982229579e">ToggleCharMenu</a>(const FInputActionValue&amp; Value);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#adcca9fcc399a36c8b2fa9ff0c7926f55">   56</a></span>    UInputMappingContext* <a class="code hl_variable" href="class_a_o_b___character_controller.html#adcca9fcc399a36c8b2fa9ff0c7926f55">DefaultMappingContext</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a318f25a977538bad3b88a2a26943fed5">   59</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#a318f25a977538bad3b88a2a26943fed5">MoveIA</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a62fd458ab0cb741b535c00f61cb74044">   62</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#a62fd458ab0cb741b535c00f61cb74044">LookIA</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">   65</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">JumpIA</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">   68</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">SprintIA</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#ac564a2300aec637f6040b650733bc59b">   71</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#ac564a2300aec637f6040b650733bc59b">InteractIA</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a46d511b95c3b49906b2eb4ceceb16712">   74</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#a46d511b95c3b49906b2eb4ceceb16712">SelectHotbarSlotIA</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#ad2feb580460fa032a579980b868c581a">   77</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#ad2feb580460fa032a579980b868c581a">DropSlotIA</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    UPROPERTY(EditDefaultsOnly, Category=<span class="stringliteral">&quot;Input&quot;</span>)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#aab7c5b25667c91e1a47e04cf949be5fa">   80</a></span>    UInputAction* <a class="code hl_variable" href="class_a_o_b___character_controller.html#aab7c5b25667c91e1a47e04cf949be5fa">ToggleCharMenuIA</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>private:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">   84</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a> = false;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+</div>
+<div class="ttc" id="aclass_a_o_b___base_character_html"><div class="ttname"><a href="class_a_o_b___base_character.html">AOB_BaseCharacter</a></div><div class="ttdoc">Класс игрока</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00029">OB_BaseCharacter.h:30</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html"><div class="ttname"><a href="class_a_o_b___character_controller.html">AOB_CharacterController</a></div><div class="ttdef"><b>Определения</b> <a href="#l00020">OB_CharacterController.h:21</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a0a8d8fbb57843fb9822ed0554e7c6a27"><div class="ttname"><a href="class_a_o_b___character_controller.html#a0a8d8fbb57843fb9822ed0554e7c6a27">AOB_CharacterController::Interact</a></div><div class="ttdeci">void Interact(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00156">OB_CharacterController.cpp:156</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a0df75bf605d1aaa2157f0c0d996ed723"><div class="ttname"><a href="class_a_o_b___character_controller.html#a0df75bf605d1aaa2157f0c0d996ed723">AOB_CharacterController::StopJump</a></div><div class="ttdeci">void StopJump(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00148">OB_CharacterController.cpp:148</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a1c5f99fc4acff5460fee8458bed0ba64"><div class="ttname"><a href="class_a_o_b___character_controller.html#a1c5f99fc4acff5460fee8458bed0ba64">AOB_CharacterController::StopSprint</a></div><div class="ttdeci">void StopSprint(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00130">OB_CharacterController.cpp:130</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a1d737d6b213ce0f914945e87a21d1de6"><div class="ttname"><a href="class_a_o_b___character_controller.html#a1d737d6b213ce0f914945e87a21d1de6">AOB_CharacterController::SelectHotbarSlot</a></div><div class="ttdeci">void SelectHotbarSlot(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00166">OB_CharacterController.cpp:166</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a22bc7bd4621feb7acf4090b39da2eb8b"><div class="ttname"><a href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">AOB_CharacterController::ControlledCharacter</a></div><div class="ttdeci">std::shared_ptr&lt; AOB_BaseCharacter &gt; ControlledCharacter</div><div class="ttdef"><b>Определения</b> <a href="#l00032">OB_CharacterController.h:32</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a2f79dc27a41aa6547a498106b813cd06"><div class="ttname"><a href="class_a_o_b___character_controller.html#a2f79dc27a41aa6547a498106b813cd06">AOB_CharacterController::DropSlot</a></div><div class="ttdeci">void DropSlot(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00178">OB_CharacterController.cpp:178</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a318f25a977538bad3b88a2a26943fed5"><div class="ttname"><a href="class_a_o_b___character_controller.html#a318f25a977538bad3b88a2a26943fed5">AOB_CharacterController::MoveIA</a></div><div class="ttdeci">UInputAction * MoveIA</div><div class="ttdef"><b>Определения</b> <a href="#l00059">OB_CharacterController.h:59</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a41cf31f68832a68b123209c0d522f015"><div class="ttname"><a href="class_a_o_b___character_controller.html#a41cf31f68832a68b123209c0d522f015">AOB_CharacterController::HudWidgetClass</a></div><div class="ttdeci">class&lt; UOB_PlayerHud &gt; HudWidgetClass</div><div class="ttdef"><b>Определения</b> <a href="#l00037">OB_CharacterController.h:37</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a46d511b95c3b49906b2eb4ceceb16712"><div class="ttname"><a href="class_a_o_b___character_controller.html#a46d511b95c3b49906b2eb4ceceb16712">AOB_CharacterController::SelectHotbarSlotIA</a></div><div class="ttdeci">UInputAction * SelectHotbarSlotIA</div><div class="ttdef"><b>Определения</b> <a href="#l00074">OB_CharacterController.h:74</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a62fd458ab0cb741b535c00f61cb74044"><div class="ttname"><a href="class_a_o_b___character_controller.html#a62fd458ab0cb741b535c00f61cb74044">AOB_CharacterController::LookIA</a></div><div class="ttdeci">UInputAction * LookIA</div><div class="ttdef"><b>Определения</b> <a href="#l00062">OB_CharacterController.h:62</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a64bae11ac8985500bec72396c05caac7"><div class="ttname"><a href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">AOB_CharacterController::SprintIA</a></div><div class="ttdeci">UInputAction * SprintIA</div><div class="ttdef"><b>Определения</b> <a href="#l00068">OB_CharacterController.h:68</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a6fec20d3caa8ae52bacafd4fb7cd694f"><div class="ttname"><a href="class_a_o_b___character_controller.html#a6fec20d3caa8ae52bacafd4fb7cd694f">AOB_CharacterController::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00012">OB_CharacterController.cpp:12</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a72909a4f1a77faabfe1c856f3214e289"><div class="ttname"><a href="class_a_o_b___character_controller.html#a72909a4f1a77faabfe1c856f3214e289">AOB_CharacterController::Move</a></div><div class="ttdeci">void Move(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00100">OB_CharacterController.cpp:100</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a99e4321e87c19d13c4d97c3305c7bf7a"><div class="ttname"><a href="class_a_o_b___character_controller.html#a99e4321e87c19d13c4d97c3305c7bf7a">AOB_CharacterController::StartSprint</a></div><div class="ttdeci">void StartSprint(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00120">OB_CharacterController.cpp:120</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a9ddad02bcf6a1f283ef91a66e43e50fc"><div class="ttname"><a href="class_a_o_b___character_controller.html#a9ddad02bcf6a1f283ef91a66e43e50fc">AOB_CharacterController::SetupInputComponent</a></div><div class="ttdeci">virtual void SetupInputComponent() override</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00057">OB_CharacterController.cpp:57</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_aab7c5b25667c91e1a47e04cf949be5fa"><div class="ttname"><a href="class_a_o_b___character_controller.html#aab7c5b25667c91e1a47e04cf949be5fa">AOB_CharacterController::ToggleCharMenuIA</a></div><div class="ttdeci">UInputAction * ToggleCharMenuIA</div><div class="ttdef"><b>Определения</b> <a href="#l00080">OB_CharacterController.h:80</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_aadb357248cd5432becbc1c982229579e"><div class="ttname"><a href="class_a_o_b___character_controller.html#aadb357248cd5432becbc1c982229579e">AOB_CharacterController::ToggleCharMenu</a></div><div class="ttdeci">void ToggleCharMenu(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00189">OB_CharacterController.cpp:189</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ab3bd71339d98f692113b798b61986bdb"><div class="ttname"><a href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">AOB_CharacterController::bBlockMovement</a></div><div class="ttdeci">bool bBlockMovement</div><div class="ttdef"><b>Определения</b> <a href="#l00084">OB_CharacterController.h:84</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ac564a2300aec637f6040b650733bc59b"><div class="ttname"><a href="class_a_o_b___character_controller.html#ac564a2300aec637f6040b650733bc59b">AOB_CharacterController::InteractIA</a></div><div class="ttdeci">UInputAction * InteractIA</div><div class="ttdef"><b>Определения</b> <a href="#l00071">OB_CharacterController.h:71</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ad2feb580460fa032a579980b868c581a"><div class="ttname"><a href="class_a_o_b___character_controller.html#ad2feb580460fa032a579980b868c581a">AOB_CharacterController::DropSlotIA</a></div><div class="ttdeci">UInputAction * DropSlotIA</div><div class="ttdef"><b>Определения</b> <a href="#l00077">OB_CharacterController.h:77</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ad812e7623d60b78de27ccdb732114668"><div class="ttname"><a href="class_a_o_b___character_controller.html#ad812e7623d60b78de27ccdb732114668">AOB_CharacterController::DoJump</a></div><div class="ttdeci">void DoJump(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00138">OB_CharacterController.cpp:138</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_adcca9fcc399a36c8b2fa9ff0c7926f55"><div class="ttname"><a href="class_a_o_b___character_controller.html#adcca9fcc399a36c8b2fa9ff0c7926f55">AOB_CharacterController::DefaultMappingContext</a></div><div class="ttdeci">UInputMappingContext * DefaultMappingContext</div><div class="ttdef"><b>Определения</b> <a href="#l00056">OB_CharacterController.h:56</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_add4d5eea07376fd907f0537fcad5228a"><div class="ttname"><a href="class_a_o_b___character_controller.html#add4d5eea07376fd907f0537fcad5228a">AOB_CharacterController::OnPossess</a></div><div class="ttdeci">virtual void OnPossess(APawn *InPawn) override</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00044">OB_CharacterController.cpp:44</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ae9b2fcb062a66833366576ce2bd30386"><div class="ttname"><a href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">AOB_CharacterController::PlayerHudWidget</a></div><div class="ttdeci">std::shared_ptr&lt; UOB_PlayerHud &gt; PlayerHudWidget</div><div class="ttdef"><b>Определения</b> <a href="#l00040">OB_CharacterController.h:40</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_af3669779eb6516bb60f26e042638d688"><div class="ttname"><a href="class_a_o_b___character_controller.html#af3669779eb6516bb60f26e042638d688">AOB_CharacterController::Look</a></div><div class="ttdeci">void Look(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8cpp_source.html#l00110">OB_CharacterController.cpp:110</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_afc7f76c6328b6be3249831a4abf9eb5a"><div class="ttname"><a href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">AOB_CharacterController::JumpIA</a></div><div class="ttdeci">UInputAction * JumpIA</div><div class="ttdef"><b>Определения</b> <a href="#l00065">OB_CharacterController.h:65</a></div></div>
+<div class="ttc" id="aclass_a_player_controller_html"><div class="ttname"><a href="class_a_player_controller.html">APlayerController</a></div></div>
+<div class="ttc" id="aclass_u_o_b___player_hud_html"><div class="ttname"><a href="class_u_o_b___player_hud.html">UOB_PlayerHud</a></div><div class="ttdef"><b>Определения</b> <a href="_o_b___player_hud_8h_source.html#l00017">OB_PlayerHud.h:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_a3883cd9c99d4de3ebfc3e1cb8375b9e.html">OmniBunker</a></li><li class="navelem"><a href="dir_5d88b879529d08e5b0b5cce0368d8438.html">Controllers</a></li><li class="navelem"><a href="_o_b___character_controller_8h.html">OB_CharacterController.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

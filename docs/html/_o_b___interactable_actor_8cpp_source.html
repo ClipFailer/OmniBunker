@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Исходный файл Source/OmniBunker/Interaction/OB_InteractableActor.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_o_b___interactable_actor_8cpp_source.html','',''); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">OB_InteractableActor.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_o_b___interactable_actor_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file OB_InteractableActor.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author ClipFail (rogroty@gmail.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Интекрактивный эктор</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @version 0.1</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @date 2026-08-19</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @copyright Copyright (c) 2026 OmniBunker Team. All rights reserved.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// Copyright (c) 2026 OmniBunker Team. All rights reserved.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___interactable_actor_8h.html">OB_InteractableActor.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;Components/WidgetComponent.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;GameFramework/Character.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_interaction_hint_widget_8h.html">../UI/InteractionHintWidget.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___condition_8h.html">../Interaction/OB_Condition.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#a246b7a766076727050d8e5dcca57d042">   21</a></span><a class="code hl_function" href="class_a_o_b___interactable_actor.html#a246b7a766076727050d8e5dcca57d042">AOB_InteractableActor::AOB_InteractableActor</a>()</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    PrimaryActorTick.bCanEverTick = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a> = CreateDefaultSubobject&lt;UStaticMeshComponent&gt;(TEXT(<span class="stringliteral">&quot;MeshComponent&quot;</span>));</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    RootComponent = <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>-&gt;SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>-&gt;SetCollisionObjectType(<a class="code hl_define" href="_o_b___interactable_actor_8h.html#a8448d130ca2c68a564d2396f6e2b5593">ECC_InteractionObject</a>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>-&gt;SetCollisionResponseToChannel(<a class="code hl_define" href="_o_b___interactable_actor_8h.html#a96b35b12ca540d2932de07b8c836c0db">ECC_InteractionTrace</a>, ECR_Block);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>-&gt;SetGenerateOverlapEvents(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>-&gt;SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Overlap);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a> = CreateDefaultSubobject&lt;UWidgetComponent&gt;(</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        TEXT(<span class="stringliteral">&quot;InteractionHint&quot;</span>)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    );</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetupAttachment(RootComponent);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> ConstructorHelpers::FClassFinder&lt;UInteractionHintWidget&gt; WidgetClassFinder(</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        TEXT(<span class="stringliteral">&quot;/Game/_OmniBunker/UI/Interaction/WBP_InteractionHint&quot;</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    );</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (WidgetClassFinder.Succeeded()) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2bca24fb67b91ec66f175dc0e29af3f7">InteractionWidgetClass</a> = WidgetClassFinder.Class;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        UE_LOG(</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            LogTemp, </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            Error, </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            TEXT(<span class="stringliteral">&quot;AOB_InteractableActor::AOB_InteractableActor(): Failed to find default HintUI class&quot;</span>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        );</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2bca24fb67b91ec66f175dc0e29af3f7">InteractionWidgetClass</a> = UInteractionHintWidget::StaticClass();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetWidgetClass(<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2bca24fb67b91ec66f175dc0e29af3f7">InteractionWidgetClass</a>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetWidgetSpace(EWidgetSpace::Screen);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetDrawSize(FVector2D(80.f, 80.f));</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#a58d3cd8d0cfcd23a6c52f8971df6cb0c">   59</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#a58d3cd8d0cfcd23a6c52f8971df6cb0c">AOB_InteractableActor::ShowInteractionHint_Implementation</a>() {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a49275f611ff3810af3bb092975e57cd8">bCanHighlight</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;IsWidgetVisible())</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetVisibility(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a>-&gt;<a class="code hl_function" href="class_u_interaction_hint_widget.html#ad0a2d6d9aab7623bed3f8d885522dc7a">PlayAppearAnim</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#a46bef86b873e45b4202cb80b0bd3dca9">   69</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#a46bef86b873e45b4202cb80b0bd3dca9">AOB_InteractableActor::HideInteractionHint_Implementation</a>() {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a49275f611ff3810af3bb092975e57cd8">bCanHighlight</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a>)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a>-&gt;<a class="code hl_function" href="class_u_interaction_hint_widget.html#ad0a2d6d9aab7623bed3f8d885522dc7a">PlayAppearAnim</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#a4b39eff6a4f59dced6bd3b2c9f4c58e6">   76</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#a4b39eff6a4f59dced6bd3b2c9f4c58e6">AOB_InteractableActor::CanInteract_Implementation</a>(<a class="code hl_class" href="class_a_actor.html">AActor</a>* Interactor)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code hl_class" href="class_u_o_b___condition.html">UOB_Condition</a>* Condition : <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#acf52ca1740ad8d36338e1212235c83de">InteractionConditions</a>)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (Condition &amp;&amp; !Condition-&gt;Check(Interactor))</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#ada63120cd566b82c4794bf903b2cc6a2">   88</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#ada63120cd566b82c4794bf903b2cc6a2">AOB_InteractableActor::DisableInteraction</a>() {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#aa3919e6b1fe3af062e8ce01f072baa2a">bCanInteract</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a49275f611ff3810af3bb092975e57cd8">bCanHighlight</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;IsWidgetVisible())</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetVisibility(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#abbb5df1da2919da45e878efb5376856b">   96</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#abbb5df1da2919da45e878efb5376856b">AOB_InteractableActor::BeginPlay</a>()</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    Super::BeginPlay();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a> = Cast&lt;UInteractionHintWidget&gt;    </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                                (<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;GetUserWidgetObject());</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// if (InteractionWidgetInstance) </span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="comment">// InteractionWidgetInstance-&gt;SetRenderOpacity(0.f);    </span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a>-&gt;SetVisibility(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a>-&gt;SetSimulatePhysics(<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac18be5c430bd961eb19184c21cd8964c">bSimulatePhysics</a>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#ae62990788245680a833ae1293e2be8fc">  110</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#ae62990788245680a833ae1293e2be8fc">AOB_InteractableActor::Interact_Implementation</a>(<a class="code hl_class" href="class_a_character.html">ACharacter</a>* Interactor) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">if</span> (!Interactor) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="class_a_o_b___interactable_actor.html#aec54967c5ebece61cf8d7eac6d2c1106">PlayWidgetClickAnim</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_a_o_b___interactable_actor.html#a4b39eff6a4f59dced6bd3b2c9f4c58e6">CanInteract_Implementation</a>(Interactor)) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        UE_LOG(LogTemp, Warning, TEXT(<span class="stringliteral">&quot;Interaction failed: Conditions not met!&quot;</span>));</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// if (!bCanInteract_Implementation) return;</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">// if (GetLocalRole() &lt; ROLE_Authority &amp;&amp; GetIsReplicated()) {</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">//  // Если эктор реплицируется то вызываем соответствующие методы</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment">//  if (ShouldUseReliableRPC()) {</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">//      Server_Interact_Reliable(Interactor);</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="comment">//      UE_LOG(</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment">//          LogTemp, </span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">//          Display, </span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">//          TEXT(&quot;%s(RPS-Rel) interacted with by %s&quot;), </span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">//          *GetName(), </span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">//          *Interactor-&gt;GetName()</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">//      );</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">//      return;</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="comment">//  } else {</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">//      Server_Interact_Unreliable(Interactor);</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="comment">//      UE_LOG(</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="comment">//          LogTemp, </span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="comment">//          Display, </span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="comment">//          TEXT(&quot;%s(RPS-Unrel) interacted with by %s&quot;), </span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="comment">//          *GetName(), </span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="comment">//          *Interactor-&gt;GetName()</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">//      );</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">//      return;</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">//  }</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="comment">// } else {</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">//  OnInteract_Implementation(Interactor);</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="comment">//  UE_LOG(</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="comment">//      LogTemp, </span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">//      Display, </span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">//      TEXT(&quot;%s interacted with by %s&quot;), </span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="comment">//      *GetName(), </span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">//      *Interactor-&gt;GetName()</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">//  );</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="comment">// }</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#a492c7e788b34920d4848b8a88dab1e90">  163</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#a492c7e788b34920d4848b8a88dab1e90">AOB_InteractableActor::OnInteract_Implementation</a>(<a class="code hl_class" href="class_a_character.html">ACharacter</a>* Interactor) {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">// void AOB_InteractableActor::Server_Interact_Reliable_Implementation(ACharacter* Interactor) {</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">//     OnInteract_Implementation(Interactor);</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">// }</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">// void AOB_InteractableActor::Server_Interact_Unreliable_Implementation(ACharacter* Interactor) {</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">//     OnInteract_Implementation(Interactor);</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">// }</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="class_a_o_b___interactable_actor.html#aec54967c5ebece61cf8d7eac6d2c1106">  175</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___interactable_actor.html#aec54967c5ebece61cf8d7eac6d2c1106">AOB_InteractableActor::PlayWidgetClickAnim</a>() {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">if</span> (IsValid(<a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a>)) {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <a class="code hl_variable" href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a>-&gt;<a class="code hl_function" href="class_u_interaction_hint_widget.html#a32c127495a9e726a5d0eea7a2506a84c">PlayClickAnim</a>();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
+</div>
+<div class="ttc" id="a_interaction_hint_widget_8h_html"><div class="ttname"><a href="_interaction_hint_widget_8h.html">InteractionHintWidget.h</a></div></div>
+<div class="ttc" id="a_o_b___condition_8h_html"><div class="ttname"><a href="_o_b___condition_8h.html">OB_Condition.h</a></div></div>
+<div class="ttc" id="a_o_b___interactable_actor_8h_html"><div class="ttname"><a href="_o_b___interactable_actor_8h.html">OB_InteractableActor.h</a></div><div class="ttdoc">Интекрактивный эктор</div></div>
+<div class="ttc" id="a_o_b___interactable_actor_8h_html_a8448d130ca2c68a564d2396f6e2b5593"><div class="ttname"><a href="_o_b___interactable_actor_8h.html#a8448d130ca2c68a564d2396f6e2b5593">ECC_InteractionObject</a></div><div class="ttdeci">#define ECC_InteractionObject</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00017">OB_InteractableActor.h:17</a></div></div>
+<div class="ttc" id="a_o_b___interactable_actor_8h_html_a96b35b12ca540d2932de07b8c836c0db"><div class="ttname"><a href="_o_b___interactable_actor_8h.html#a96b35b12ca540d2932de07b8c836c0db">ECC_InteractionTrace</a></div><div class="ttdeci">#define ECC_InteractionTrace</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00018">OB_InteractableActor.h:18</a></div></div>
+<div class="ttc" id="aclass_a_actor_html"><div class="ttname"><a href="class_a_actor.html">AActor</a></div></div>
+<div class="ttc" id="aclass_a_character_html"><div class="ttname"><a href="class_a_character.html">ACharacter</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a2159f5f8300915d9e68d9f6f44eb6c88"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a2159f5f8300915d9e68d9f6f44eb6c88">AOB_InteractableActor::MeshComponent</a></div><div class="ttdeci">UStaticMeshComponent * MeshComponent</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00101">OB_InteractableActor.h:101</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a246b7a766076727050d8e5dcca57d042"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a246b7a766076727050d8e5dcca57d042">AOB_InteractableActor::AOB_InteractableActor</a></div><div class="ttdeci">AOB_InteractableActor()</div><div class="ttdef"><b>Определения</b> <a href="#l00021">OB_InteractableActor.cpp:21</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a2bca24fb67b91ec66f175dc0e29af3f7"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a2bca24fb67b91ec66f175dc0e29af3f7">AOB_InteractableActor::InteractionWidgetClass</a></div><div class="ttdeci">class&lt; UInteractionHintWidget &gt; InteractionWidgetClass</div><div class="ttdoc">Класс для отображения виджета взаимодействия По умолчанию используется UInteractionHint (WBP_Interact...</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00109">OB_InteractableActor.h:109</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a46bef86b873e45b4202cb80b0bd3dca9"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a46bef86b873e45b4202cb80b0bd3dca9">AOB_InteractableActor::HideInteractionHint_Implementation</a></div><div class="ttdeci">virtual void HideInteractionHint_Implementation() override</div><div class="ttdoc">Реализация скрытия виджета взаимодействия.</div><div class="ttdef"><b>Определения</b> <a href="#l00069">OB_InteractableActor.cpp:69</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a49275f611ff3810af3bb092975e57cd8"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a49275f611ff3810af3bb092975e57cd8">AOB_InteractableActor::bCanHighlight</a></div><div class="ttdeci">bool bCanHighlight</div><div class="ttdoc">Показывается ли виджет взаимодействия</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00128">OB_InteractableActor.h:128</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a492c7e788b34920d4848b8a88dab1e90"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a492c7e788b34920d4848b8a88dab1e90">AOB_InteractableActor::OnInteract_Implementation</a></div><div class="ttdeci">virtual void OnInteract_Implementation(ACharacter *Interactor)</div><div class="ttdoc">С++ реализация AOB_InteractableActor::OnInteract.</div><div class="ttdef"><b>Определения</b> <a href="#l00163">OB_InteractableActor.cpp:163</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a4b39eff6a4f59dced6bd3b2c9f4c58e6"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a4b39eff6a4f59dced6bd3b2c9f4c58e6">AOB_InteractableActor::CanInteract_Implementation</a></div><div class="ttdeci">bool CanInteract_Implementation(AActor *Interactor) const</div><div class="ttdoc">C++ Реализация IInteractable::CanInteract.</div><div class="ttdef"><b>Определения</b> <a href="#l00076">OB_InteractableActor.cpp:76</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a56282c3deb96f813454ed2ec63475c63"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a56282c3deb96f813454ed2ec63475c63">AOB_InteractableActor::InteractionWidgetComp</a></div><div class="ttdeci">UWidgetComponent * InteractionWidgetComp</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00104">OB_InteractableActor.h:104</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_a58d3cd8d0cfcd23a6c52f8971df6cb0c"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#a58d3cd8d0cfcd23a6c52f8971df6cb0c">AOB_InteractableActor::ShowInteractionHint_Implementation</a></div><div class="ttdeci">virtual void ShowInteractionHint_Implementation() override</div><div class="ttdoc">Реализация показа виджета взаимодействия.</div><div class="ttdef"><b>Определения</b> <a href="#l00059">OB_InteractableActor.cpp:59</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_aa3919e6b1fe3af062e8ce01f072baa2a"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#aa3919e6b1fe3af062e8ce01f072baa2a">AOB_InteractableActor::bCanInteract</a></div><div class="ttdeci">bool bCanInteract</div><div class="ttdoc">Определяет, можно ли взаимодействовать с эктором</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00113">OB_InteractableActor.h:113</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_abbb5df1da2919da45e878efb5376856b"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#abbb5df1da2919da45e878efb5376856b">AOB_InteractableActor::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Определения</b> <a href="#l00096">OB_InteractableActor.cpp:96</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_ac18be5c430bd961eb19184c21cd8964c"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#ac18be5c430bd961eb19184c21cd8964c">AOB_InteractableActor::bSimulatePhysics</a></div><div class="ttdeci">bool bSimulatePhysics</div><div class="ttdoc">Симиулирует ли физику эктор</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00117">OB_InteractableActor.h:117</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_ac5ed51d967f6b8c9774011ee2265f0f0"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#ac5ed51d967f6b8c9774011ee2265f0f0">AOB_InteractableActor::InteractionWidgetInstance</a></div><div class="ttdeci">UInteractionHintWidget * InteractionWidgetInstance</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00132">OB_InteractableActor.h:132</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_acf52ca1740ad8d36338e1212235c83de"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#acf52ca1740ad8d36338e1212235c83de">AOB_InteractableActor::InteractionConditions</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; UOB_Condition &gt; &gt; InteractionConditions</div><div class="ttdoc">Условия для успешного взаимодействия</div><div class="ttdef"><b>Определения</b> <a href="_o_b___interactable_actor_8h_source.html#l00044">OB_InteractableActor.h:44</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_ada63120cd566b82c4794bf903b2cc6a2"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#ada63120cd566b82c4794bf903b2cc6a2">AOB_InteractableActor::DisableInteraction</a></div><div class="ttdeci">void DisableInteraction()</div><div class="ttdoc">Отключает возможность взаимодействия с эктором.</div><div class="ttdef"><b>Определения</b> <a href="#l00088">OB_InteractableActor.cpp:88</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_ae62990788245680a833ae1293e2be8fc"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#ae62990788245680a833ae1293e2be8fc">AOB_InteractableActor::Interact_Implementation</a></div><div class="ttdeci">virtual void Interact_Implementation(ACharacter *Interactor) override</div><div class="ttdoc">С++ реализация IInteractable::Interact.</div><div class="ttdef"><b>Определения</b> <a href="#l00110">OB_InteractableActor.cpp:110</a></div></div>
+<div class="ttc" id="aclass_a_o_b___interactable_actor_html_aec54967c5ebece61cf8d7eac6d2c1106"><div class="ttname"><a href="class_a_o_b___interactable_actor.html#aec54967c5ebece61cf8d7eac6d2c1106">AOB_InteractableActor::PlayWidgetClickAnim</a></div><div class="ttdeci">void PlayWidgetClickAnim()</div><div class="ttdoc">Проигрывает анимацию нажатия для виджета взаимодействия</div><div class="ttdef"><b>Определения</b> <a href="#l00175">OB_InteractableActor.cpp:175</a></div></div>
+<div class="ttc" id="aclass_u_interaction_hint_widget_html_a32c127495a9e726a5d0eea7a2506a84c"><div class="ttname"><a href="class_u_interaction_hint_widget.html#a32c127495a9e726a5d0eea7a2506a84c">UInteractionHintWidget::PlayClickAnim</a></div><div class="ttdeci">void PlayClickAnim()</div><div class="ttdef"><b>Определения</b> <a href="_interaction_hint_widget_8cpp_source.html#l00018">InteractionHintWidget.cpp:18</a></div></div>
+<div class="ttc" id="aclass_u_interaction_hint_widget_html_ad0a2d6d9aab7623bed3f8d885522dc7a"><div class="ttname"><a href="class_u_interaction_hint_widget.html#ad0a2d6d9aab7623bed3f8d885522dc7a">UInteractionHintWidget::PlayAppearAnim</a></div><div class="ttdeci">void PlayAppearAnim(const bool bPlayReverse=false)</div><div class="ttdef"><b>Определения</b> <a href="_interaction_hint_widget_8cpp_source.html#l00006">InteractionHintWidget.cpp:6</a></div></div>
+<div class="ttc" id="aclass_u_o_b___condition_html"><div class="ttname"><a href="class_u_o_b___condition.html">UOB_Condition</a></div><div class="ttdef"><b>Определения</b> <a href="_o_b___condition_8h_source.html#l00013">OB_Condition.h:14</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_a3883cd9c99d4de3ebfc3e1cb8375b9e.html">OmniBunker</a></li><li class="navelem"><a href="dir_229d2f85e89dfda8c93b3034657c23af.html">Interaction</a></li><li class="navelem"><a href="_o_b___interactable_actor_8cpp.html">OB_InteractableActor.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

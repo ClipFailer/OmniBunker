@@ -1,3 +1,12 @@
+/// @file Класс игрока
+/// @author Clipfail (rogroty@gmai.com)
+/// @brief 
+/// @version 0.1
+/// @date 19-08-2026
+/// 
+/// @copyright Copyright (c) 2026 OmniBunker Team. All rights reserved.
+/// 
+
 // Copyright (c) 2026 OmniBunker Team. All rights reserved.
 
 #pragma once
@@ -15,6 +24,7 @@ class UOB_InteractionComponent;
 class UInventoryComponent;
 class UCharacteristicComponent;
 
+/// @brief Класс игрока
 UCLASS()
 class OMNIBUNKER_API AOB_BaseCharacter : public ACharacter, public IOB_CharacterInterface
 {
@@ -25,20 +35,49 @@ public:
 
     virtual void Tick(float DeltaTime) override;
 
+    UFUNCTION(Server, Reliable)
+    void Server_Interact(AActor* Target);
+
+    /// @brief C++ Реализация @ref UOB_CharacterInterface::GetInventoryComp
+    /// @return UInventoryComponent* конмпонент инвентаря игрока
     virtual UInventoryComponent* GetInventoryComp_Implementation() const override;
+
+    /// @brief C++ Реализация @ref UOB_CharacterInterface::Pickup
+    /// @param InventoryActor Эктор, который игрок хочет поднять
+    /// @return true Эктор был добавлен в инвентрарь успешно.
+    /// @return false Эктор не был добавлен в инвентрарь.
     virtual bool Pickup_Implementation(AOB_InventoryActor* InventoryActor) override;
     virtual UOB_InteractionComponent* GetInteractionComp_Implementation() const override;
 
+    /// @brief C++ Реализация @ref UOB_CharacterInterface::GetInteractionComp
+    /// @return UCharacteristicComponent* конмпонент взаимодействия игрока.
     UCharacteristicComponent* GetCharacteristicComp() const { return CharacteristicComponent; };
 
-    // Публичные методы выполнения действий
+    /// @brief Выполняет движение игрока.
+    /// @param Value Значение ввода.
     void Move(const FInputActionValue& Value);
+
+    /// @brief Выполняет движение камеры игрока.
+    /// @param Value Значение ввода.
     void Look(const FInputActionValue& Value);
+
+    /// @brief Начинает бег игрока.
+    /// @param Value Значение ввода.
     void StartSprint(const FInputActionValue& Value);
+
+    /// @brief Завершает бег игрока.
+    /// @param Value Значение ввода.
     void StopSprint(const FInputActionValue& Value);
+
+    /// @brief Выполняет прыжок.
+    /// @param Value Значение ввода.
     void DoJump(const FInputActionValue& Value);
+
+    /// @brief Выполняет взаимодействие игрока с интерактивными объектами.
+    /// @param Value Значение ввода.
     void Interact(const FInputActionValue& Value);
 
+    /// @brief Вызывается при истощении стамины.
     UFUNCTION()
     void OnStaminaEnded();
 

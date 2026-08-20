@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Файл Source/OmniBunker/Components/OB_HealthComponent.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_o_b___health_component_8h.html','',''); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Файл OB_HealthComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
+<code>#include &quot;Components/ActorComponent.h&quot;</code><br />
+<code>#include &quot;OB_HealthComponent.generated.h&quot;</code><br />
+</div>
+<p><a href="_o_b___health_component_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ac6f3dc769f4039acc14f26f75319bcb7" id="r_ac6f3dc769f4039acc14f26f75319bcb7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac6f3dc769f4039acc14f26f75319bcb7">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</a> (FOnHeal, float, newHealth)</td></tr>
+<tr class="memitem:a36d220991968dab83cf18bcda3559a71" id="r_a36d220991968dab83cf18bcda3559a71"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a36d220991968dab83cf18bcda3559a71">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</a> (FOnDamaged, float, newHealth)</td></tr>
+<tr class="memitem:a8920fdf5c179d6311bcf178c08686ae7" id="r_a8920fdf5c179d6311bcf178c08686ae7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8920fdf5c179d6311bcf178c08686ae7">DECLARE_DYNAMIC_MULTICAST_DELEGATE</a> (FOnDie)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a2cb6ac985e5133868af0f75cb0f1edbb" id="r_a2cb6ac985e5133868af0f75cb0f1edbb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2cb6ac985e5133868af0f75cb0f1edbb">meta</a></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Функции</h2>
+<a id="ac6f3dc769f4039acc14f26f75319bcb7" name="ac6f3dc769f4039acc14f26f75319bcb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f3dc769f4039acc14f26f75319bcb7">&#9670;&#160;</a></span>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam </td>
+          <td>(</td>
+          <td class="paramtype">FOnHeal</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">newHealth</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_inventory_component_8h.html#ac0931fea954884dfcf45ac085b62c3c8">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam()</a>.</p>
+
+</div>
+</div>
+<a id="a36d220991968dab83cf18bcda3559a71" name="a36d220991968dab83cf18bcda3559a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36d220991968dab83cf18bcda3559a71">&#9670;&#160;</a></span>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam </td>
+          <td>(</td>
+          <td class="paramtype">FOnDamaged</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">newHealth</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_inventory_component_8h.html#ac0931fea954884dfcf45ac085b62c3c8">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam()</a>.</p>
+
+</div>
+</div>
+<a id="a8920fdf5c179d6311bcf178c08686ae7" name="a8920fdf5c179d6311bcf178c08686ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8920fdf5c179d6311bcf178c08686ae7">&#9670;&#160;</a></span>DECLARE_DYNAMIC_MULTICAST_DELEGATE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DECLARE_DYNAMIC_MULTICAST_DELEGATE </td>
+          <td>(</td>
+          <td class="paramtype">FOnDie</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Перекрестные ссылки <a class="el" href="#a8920fdf5c179d6311bcf178c08686ae7">DECLARE_DYNAMIC_MULTICAST_DELEGATE()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="#a8920fdf5c179d6311bcf178c08686ae7">DECLARE_DYNAMIC_MULTICAST_DELEGATE()</a> и <a class="el" href="_stamina_component_8h.html#a2ae56c646a0bd12f827766daa4eb4afb">DECLARE_DYNAMIC_MULTICAST_DELEGATE()</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Переменные</h2>
+<a id="a2cb6ac985e5133868af0f75cb0f1edbb" name="a2cb6ac985e5133868af0f75cb0f1edbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb6ac985e5133868af0f75cb0f1edbb">&#9670;&#160;</a></span>meta</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">meta</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___health_component_8h_source.html">OB_HealthComponent.h</a> строка <a class="el" href="_o_b___health_component_8h_source.html#l00026">26</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_a3883cd9c99d4de3ebfc3e1cb8375b9e.html">OmniBunker</a></li><li class="navelem"><a href="dir_fb4c87929a692e4c4e65bce5e99b990e.html">Components</a></li><li class="navelem"><a href="_o_b___health_component_8h.html">OB_HealthComponent.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

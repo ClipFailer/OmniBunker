@@ -1,0 +1,5 @@
+Documentation:
+  CommentFormat: Doxygen
+
+Hover:
+  ShowAKA: false

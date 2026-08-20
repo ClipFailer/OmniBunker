@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Исходный файл Source/OmniBunker/Controllers/OB_CharacterController.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_o_b___character_controller_8cpp_source.html','',''); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">OB_CharacterController.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_o_b___character_controller_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (c) 2026 OmniBunker Team. All rights reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___character_controller_8h.html">OB_CharacterController.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;EnhancedInputComponent.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;EnhancedInputSubsystems.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___base_character_8h.html">../Characters/OB_BaseCharacter.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___player_hud_8h.html">../UI/OB_PlayerHud.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="_inventory_component_8h.html">../Components/InventoryComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a6fec20d3caa8ae52bacafd4fb7cd694f">   12</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a6fec20d3caa8ae52bacafd4fb7cd694f">AOB_CharacterController::BeginPlay</a>() </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    Super::BeginPlay();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">if</span> (!IsLocalController()) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (ULocalPlayer* LocalPlayer = GetLocalPlayer())</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">if</span> (UEnhancedInputLocalPlayerSubsystem* EnhancedSubsystem = ULocalPlayer::GetSubsystem&lt;UEnhancedInputLocalPlayerSubsystem&gt;(LocalPlayer)) </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#adcca9fcc399a36c8b2fa9ff0c7926f55">DefaultMappingContext</a>) </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                EnhancedSubsystem-&gt;AddMappingContext(<a class="code hl_variable" href="class_a_o_b___character_controller.html#adcca9fcc399a36c8b2fa9ff0c7926f55">DefaultMappingContext</a>, 0);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a41cf31f68832a68b123209c0d522f015">HudWidgetClass</a> &amp;&amp; IsLocalController()) </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a> = CreateWidget&lt;UOB_PlayerHud&gt;(Cast&lt;APlayerController&gt;(<span class="keyword">this</span>), <a class="code hl_variable" href="class_a_o_b___character_controller.html#a41cf31f68832a68b123209c0d522f015">HudWidgetClass</a>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>-&gt;AddToPlayerScreen();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordflow">if</span> (<a class="code hl_class" href="class_a_o_b___base_character.html">AOB_BaseCharacter</a>* BaseChar = GetPawn&lt;AOB_BaseCharacter&gt;()) </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a> = BaseChar;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                <a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>-&gt;Init(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#add4d5eea07376fd907f0537fcad5228a">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#add4d5eea07376fd907f0537fcad5228a">AOB_CharacterController::OnPossess</a>(APawn* InPawn) </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    Super::OnPossess(InPawn);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">if</span> (!InPawn) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a> = Cast&lt;AOB_BaseCharacter&gt;(InPawn);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a> &amp;&amp; <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>){</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>-&gt;Init(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a9ddad02bcf6a1f283ef91a66e43e50fc">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a9ddad02bcf6a1f283ef91a66e43e50fc">AOB_CharacterController::SetupInputComponent</a>()</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    Super::SetupInputComponent();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span> (UEnhancedInputComponent* EnhancedIC = CastChecked&lt;UEnhancedInputComponent&gt;(InputComponent)) </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a318f25a977538bad3b88a2a26943fed5">MoveIA</a>) </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a318f25a977538bad3b88a2a26943fed5">MoveIA</a>, ETriggerEvent::Triggered, <span class="keyword">this</span>, &amp;ThisClass::Move);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a62fd458ab0cb741b535c00f61cb74044">LookIA</a>) </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a62fd458ab0cb741b535c00f61cb74044">LookIA</a>, ETriggerEvent::Triggered, <span class="keyword">this</span>, &amp;ThisClass::Look);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">JumpIA</a>) </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">JumpIA</a>, ETriggerEvent::Started, <span class="keyword">this</span>, &amp;ThisClass::DoJump);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">JumpIA</a>, ETriggerEvent::Completed, <span class="keyword">this</span>, &amp;ThisClass::StopJump);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">SprintIA</a>) </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">SprintIA</a>, ETriggerEvent::Started, <span class="keyword">this</span>, &amp;ThisClass::StartSprint);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">SprintIA</a>, ETriggerEvent::Completed, <span class="keyword">this</span>, &amp;ThisClass::StopSprint);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ac564a2300aec637f6040b650733bc59b">InteractIA</a>) </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#ac564a2300aec637f6040b650733bc59b">InteractIA</a>, ETriggerEvent::Started, <span class="keyword">this</span>, &amp;ThisClass::Interact);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a46d511b95c3b49906b2eb4ceceb16712">SelectHotbarSlotIA</a>) </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a46d511b95c3b49906b2eb4ceceb16712">SelectHotbarSlotIA</a>, ETriggerEvent::Started, <span class="keyword">this</span>, &amp;ThisClass::SelectHotbarSlot);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ad2feb580460fa032a579980b868c581a">DropSlotIA</a>) </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#ad2feb580460fa032a579980b868c581a">DropSlotIA</a>, ETriggerEvent::Started, <span class="keyword">this</span>, &amp;ThisClass::DropSlot);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#aab7c5b25667c91e1a47e04cf949be5fa">ToggleCharMenuIA</a>) </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            EnhancedIC-&gt;BindAction(<a class="code hl_variable" href="class_a_o_b___character_controller.html#aab7c5b25667c91e1a47e04cf949be5fa">ToggleCharMenuIA</a>, ETriggerEvent::Started, <span class="keyword">this</span>, &amp;ThisClass::ToggleCharMenu);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a72909a4f1a77faabfe1c856f3214e289">  100</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a72909a4f1a77faabfe1c856f3214e289">AOB_CharacterController::Move</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;Move(Value);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#af3669779eb6516bb60f26e042638d688">  110</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#af3669779eb6516bb60f26e042638d688">AOB_CharacterController::Look</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;Look(Value);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a99e4321e87c19d13c4d97c3305c7bf7a">  120</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a99e4321e87c19d13c4d97c3305c7bf7a">AOB_CharacterController::StartSprint</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;StartSprint(Value);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a1c5f99fc4acff5460fee8458bed0ba64">  130</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a1c5f99fc4acff5460fee8458bed0ba64">AOB_CharacterController::StopSprint</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>{</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;StopSprint(Value);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#ad812e7623d60b78de27ccdb732114668">  138</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#ad812e7623d60b78de27ccdb732114668">AOB_CharacterController::DoJump</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>{</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;DoJump(Value);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a0df75bf605d1aaa2157f0c0d996ed723">  148</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a0df75bf605d1aaa2157f0c0d996ed723">AOB_CharacterController::StopJump</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;StopJumping();</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>}</div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a0a8d8fbb57843fb9822ed0554e7c6a27">  156</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a0a8d8fbb57843fb9822ed0554e7c6a27">AOB_CharacterController::Interact</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>-&gt;Interact(Value);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}</div>
+</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="foldopen" id="foldopen00166" data-start="{" data-end="}">
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a1d737d6b213ce0f914945e87a21d1de6">  166</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a1d737d6b213ce0f914945e87a21d1de6">AOB_CharacterController::SelectHotbarSlot</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    int32 SlotIndex = FMath::RoundToInt(Value.Get&lt;<span class="keywordtype">float</span>&gt;());</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">auto</span> Inventory = IOB_CharacterInterface::Execute_GetInventoryComp(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">if</span> (Inventory)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        Inventory-&gt;OnSelectedSlotChanged.Broadcast(SlotIndex);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#a2f79dc27a41aa6547a498106b813cd06">  178</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#a2f79dc27a41aa6547a498106b813cd06">AOB_CharacterController::DropSlot</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keyword">auto</span> Inventory = </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            IOB_CharacterInterface::Execute_GetInventoryComp(<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a>);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">if</span> (Inventory)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        Inventory-&gt;Drop();</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="class_a_o_b___character_controller.html#aadb357248cd5432becbc1c982229579e">  189</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___character_controller.html#aadb357248cd5432becbc1c982229579e">AOB_CharacterController::ToggleCharMenu</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">ControlledCharacter</a> || !<a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   <a class="code hl_variable" href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">PlayerHudWidget</a>-&gt;ToggleCharMenu();</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>   <a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a> = !<a class="code hl_variable" href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">bBlockMovement</a>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>}</div>
+</div>
+<div class="ttc" id="a_inventory_component_8h_html"><div class="ttname"><a href="_inventory_component_8h.html">InventoryComponent.h</a></div></div>
+<div class="ttc" id="a_o_b___base_character_8h_html"><div class="ttname"><a href="_o_b___base_character_8h.html">OB_BaseCharacter.h</a></div></div>
+<div class="ttc" id="a_o_b___character_controller_8h_html"><div class="ttname"><a href="_o_b___character_controller_8h.html">OB_CharacterController.h</a></div></div>
+<div class="ttc" id="a_o_b___player_hud_8h_html"><div class="ttname"><a href="_o_b___player_hud_8h.html">OB_PlayerHud.h</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html"><div class="ttname"><a href="class_a_o_b___base_character.html">AOB_BaseCharacter</a></div><div class="ttdoc">Класс игрока</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00029">OB_BaseCharacter.h:30</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a0a8d8fbb57843fb9822ed0554e7c6a27"><div class="ttname"><a href="class_a_o_b___character_controller.html#a0a8d8fbb57843fb9822ed0554e7c6a27">AOB_CharacterController::Interact</a></div><div class="ttdeci">void Interact(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00156">OB_CharacterController.cpp:156</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a0df75bf605d1aaa2157f0c0d996ed723"><div class="ttname"><a href="class_a_o_b___character_controller.html#a0df75bf605d1aaa2157f0c0d996ed723">AOB_CharacterController::StopJump</a></div><div class="ttdeci">void StopJump(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00148">OB_CharacterController.cpp:148</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a1c5f99fc4acff5460fee8458bed0ba64"><div class="ttname"><a href="class_a_o_b___character_controller.html#a1c5f99fc4acff5460fee8458bed0ba64">AOB_CharacterController::StopSprint</a></div><div class="ttdeci">void StopSprint(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00130">OB_CharacterController.cpp:130</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a1d737d6b213ce0f914945e87a21d1de6"><div class="ttname"><a href="class_a_o_b___character_controller.html#a1d737d6b213ce0f914945e87a21d1de6">AOB_CharacterController::SelectHotbarSlot</a></div><div class="ttdeci">void SelectHotbarSlot(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00166">OB_CharacterController.cpp:166</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a22bc7bd4621feb7acf4090b39da2eb8b"><div class="ttname"><a href="class_a_o_b___character_controller.html#a22bc7bd4621feb7acf4090b39da2eb8b">AOB_CharacterController::ControlledCharacter</a></div><div class="ttdeci">std::shared_ptr&lt; AOB_BaseCharacter &gt; ControlledCharacter</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00032">OB_CharacterController.h:32</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a2f79dc27a41aa6547a498106b813cd06"><div class="ttname"><a href="class_a_o_b___character_controller.html#a2f79dc27a41aa6547a498106b813cd06">AOB_CharacterController::DropSlot</a></div><div class="ttdeci">void DropSlot(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00178">OB_CharacterController.cpp:178</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a318f25a977538bad3b88a2a26943fed5"><div class="ttname"><a href="class_a_o_b___character_controller.html#a318f25a977538bad3b88a2a26943fed5">AOB_CharacterController::MoveIA</a></div><div class="ttdeci">UInputAction * MoveIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00059">OB_CharacterController.h:59</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a41cf31f68832a68b123209c0d522f015"><div class="ttname"><a href="class_a_o_b___character_controller.html#a41cf31f68832a68b123209c0d522f015">AOB_CharacterController::HudWidgetClass</a></div><div class="ttdeci">class&lt; UOB_PlayerHud &gt; HudWidgetClass</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00037">OB_CharacterController.h:37</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a46d511b95c3b49906b2eb4ceceb16712"><div class="ttname"><a href="class_a_o_b___character_controller.html#a46d511b95c3b49906b2eb4ceceb16712">AOB_CharacterController::SelectHotbarSlotIA</a></div><div class="ttdeci">UInputAction * SelectHotbarSlotIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00074">OB_CharacterController.h:74</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a62fd458ab0cb741b535c00f61cb74044"><div class="ttname"><a href="class_a_o_b___character_controller.html#a62fd458ab0cb741b535c00f61cb74044">AOB_CharacterController::LookIA</a></div><div class="ttdeci">UInputAction * LookIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00062">OB_CharacterController.h:62</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a64bae11ac8985500bec72396c05caac7"><div class="ttname"><a href="class_a_o_b___character_controller.html#a64bae11ac8985500bec72396c05caac7">AOB_CharacterController::SprintIA</a></div><div class="ttdeci">UInputAction * SprintIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00068">OB_CharacterController.h:68</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a6fec20d3caa8ae52bacafd4fb7cd694f"><div class="ttname"><a href="class_a_o_b___character_controller.html#a6fec20d3caa8ae52bacafd4fb7cd694f">AOB_CharacterController::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Определения</b> <a href="#l00012">OB_CharacterController.cpp:12</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a72909a4f1a77faabfe1c856f3214e289"><div class="ttname"><a href="class_a_o_b___character_controller.html#a72909a4f1a77faabfe1c856f3214e289">AOB_CharacterController::Move</a></div><div class="ttdeci">void Move(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00100">OB_CharacterController.cpp:100</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a99e4321e87c19d13c4d97c3305c7bf7a"><div class="ttname"><a href="class_a_o_b___character_controller.html#a99e4321e87c19d13c4d97c3305c7bf7a">AOB_CharacterController::StartSprint</a></div><div class="ttdeci">void StartSprint(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00120">OB_CharacterController.cpp:120</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_a9ddad02bcf6a1f283ef91a66e43e50fc"><div class="ttname"><a href="class_a_o_b___character_controller.html#a9ddad02bcf6a1f283ef91a66e43e50fc">AOB_CharacterController::SetupInputComponent</a></div><div class="ttdeci">virtual void SetupInputComponent() override</div><div class="ttdef"><b>Определения</b> <a href="#l00057">OB_CharacterController.cpp:57</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_aab7c5b25667c91e1a47e04cf949be5fa"><div class="ttname"><a href="class_a_o_b___character_controller.html#aab7c5b25667c91e1a47e04cf949be5fa">AOB_CharacterController::ToggleCharMenuIA</a></div><div class="ttdeci">UInputAction * ToggleCharMenuIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00080">OB_CharacterController.h:80</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_aadb357248cd5432becbc1c982229579e"><div class="ttname"><a href="class_a_o_b___character_controller.html#aadb357248cd5432becbc1c982229579e">AOB_CharacterController::ToggleCharMenu</a></div><div class="ttdeci">void ToggleCharMenu(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00189">OB_CharacterController.cpp:189</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ab3bd71339d98f692113b798b61986bdb"><div class="ttname"><a href="class_a_o_b___character_controller.html#ab3bd71339d98f692113b798b61986bdb">AOB_CharacterController::bBlockMovement</a></div><div class="ttdeci">bool bBlockMovement</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00084">OB_CharacterController.h:84</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ac564a2300aec637f6040b650733bc59b"><div class="ttname"><a href="class_a_o_b___character_controller.html#ac564a2300aec637f6040b650733bc59b">AOB_CharacterController::InteractIA</a></div><div class="ttdeci">UInputAction * InteractIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00071">OB_CharacterController.h:71</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ad2feb580460fa032a579980b868c581a"><div class="ttname"><a href="class_a_o_b___character_controller.html#ad2feb580460fa032a579980b868c581a">AOB_CharacterController::DropSlotIA</a></div><div class="ttdeci">UInputAction * DropSlotIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00077">OB_CharacterController.h:77</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ad812e7623d60b78de27ccdb732114668"><div class="ttname"><a href="class_a_o_b___character_controller.html#ad812e7623d60b78de27ccdb732114668">AOB_CharacterController::DoJump</a></div><div class="ttdeci">void DoJump(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00138">OB_CharacterController.cpp:138</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_adcca9fcc399a36c8b2fa9ff0c7926f55"><div class="ttname"><a href="class_a_o_b___character_controller.html#adcca9fcc399a36c8b2fa9ff0c7926f55">AOB_CharacterController::DefaultMappingContext</a></div><div class="ttdeci">UInputMappingContext * DefaultMappingContext</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00056">OB_CharacterController.h:56</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_add4d5eea07376fd907f0537fcad5228a"><div class="ttname"><a href="class_a_o_b___character_controller.html#add4d5eea07376fd907f0537fcad5228a">AOB_CharacterController::OnPossess</a></div><div class="ttdeci">virtual void OnPossess(APawn *InPawn) override</div><div class="ttdef"><b>Определения</b> <a href="#l00044">OB_CharacterController.cpp:44</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_ae9b2fcb062a66833366576ce2bd30386"><div class="ttname"><a href="class_a_o_b___character_controller.html#ae9b2fcb062a66833366576ce2bd30386">AOB_CharacterController::PlayerHudWidget</a></div><div class="ttdeci">std::shared_ptr&lt; UOB_PlayerHud &gt; PlayerHudWidget</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00040">OB_CharacterController.h:40</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_af3669779eb6516bb60f26e042638d688"><div class="ttname"><a href="class_a_o_b___character_controller.html#af3669779eb6516bb60f26e042638d688">AOB_CharacterController::Look</a></div><div class="ttdeci">void Look(const FInputActionValue &amp;Value)</div><div class="ttdef"><b>Определения</b> <a href="#l00110">OB_CharacterController.cpp:110</a></div></div>
+<div class="ttc" id="aclass_a_o_b___character_controller_html_afc7f76c6328b6be3249831a4abf9eb5a"><div class="ttname"><a href="class_a_o_b___character_controller.html#afc7f76c6328b6be3249831a4abf9eb5a">AOB_CharacterController::JumpIA</a></div><div class="ttdeci">UInputAction * JumpIA</div><div class="ttdef"><b>Определения</b> <a href="_o_b___character_controller_8h_source.html#l00065">OB_CharacterController.h:65</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_a3883cd9c99d4de3ebfc3e1cb8375b9e.html">OmniBunker</a></li><li class="navelem"><a href="dir_5d88b879529d08e5b0b5cce0368d8438.html">Controllers</a></li><li class="navelem"><a href="_o_b___character_controller_8cpp.html">OB_CharacterController.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -6,8 +6,8 @@
 #include "../Interfaces/OB_CharacterInterface.h"
 #include "../Data/OB_InventoryItemData.h"
 
-void AOB_InventoryActor::Interact_Implementation(ACharacter* Interactor) {
-	Super::Interact_Implementation(Interactor);
+void AOB_InventoryActor::OnInteract_Implementation(ACharacter* Interactor) {
+	Super::OnInteract_Implementation(Interactor);
 
 	if (!bCanInteract) return;
 

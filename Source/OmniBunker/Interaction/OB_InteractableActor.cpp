@@ -1,3 +1,14 @@
+/**
+ * @file OB_InteractableActor.h
+ * @author ClipFail (rogroty@gmail.com)
+ * @brief Интекрактивный эктор
+ * @version 0.1
+ * @date 2026-08-19
+ * 
+ * @copyright Copyright (c) 2026 OmniBunker Team. All rights reserved.
+ * 
+ */
+
 // Copyright (c) 2026 OmniBunker Team. All rights reserved.
 
 
@@ -10,6 +21,8 @@
 AOB_InteractableActor::AOB_InteractableActor()
 {
 	PrimaryActorTick.bCanEverTick = false;
+
+	bReplicates = true;
 
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
 	RootComponent = MeshComponent;
@@ -46,13 +59,18 @@ AOB_InteractableActor::AOB_InteractableActor()
 }
 
 void AOB_InteractableActor::ShowInteractionHint_Implementation() {
-	if (!bCanHighlight) return;
-
-	if (!InteractionWidgetComp->IsWidgetVisible())
-		InteractionWidgetComp->SetVisibility(true);
 	
-	if (InteractionWidgetInstance)
-		InteractionWidgetInstance->PlayAppearAnim();
+	
+	if (!bCanHighlight) return;
+	
+	if (InteractionWidgetComp) {
+		InteractionWidgetComp->SetVisibility(true);
+
+		if (InteractionWidgetInstance) {
+			InteractionWidgetInstance->PlayAppearAnim();
+		}
+	}
+	
 }
 
 void AOB_InteractableActor::HideInteractionHint_Implementation() {
@@ -62,7 +80,7 @@ void AOB_InteractableActor::HideInteractionHint_Implementation() {
 		InteractionWidgetInstance->PlayAppearAnim(true);
 }
 
-bool AOB_InteractableActor::CanInteract(AActor* Interactor) const {
+bool AOB_InteractableActor::CanInteract_Implementation(AActor* Interactor) const {
 	for (const UOB_Condition* Condition : InteractionConditions)
     {
         if (Condition && !Condition->Check(Interactor))
@@ -89,26 +107,19 @@ void AOB_InteractableActor::BeginPlay()
 	InteractionWidgetInstance = Cast<UInteractionHintWidget>	
 								(InteractionWidgetComp->GetUserWidgetObject());
 	
-	// if (InteractionWidgetInstance) 
+	if (InteractionWidgetInstance) 
 		// InteractionWidgetInstance->SetRenderOpacity(0.f);	
 	InteractionWidgetComp->SetVisibility(false);
 
 	MeshComponent->SetSimulatePhysics(bSimulatePhysics);
 }
 
-void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {
+void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {	
 	if (!Interactor) return;
         
-	PlayWidgetClickAnim();
+	// PlayWidgetClickAnim();
 
-	if (!CanInteract(Interactor)) {
-		UE_LOG(LogTemp, Warning, TEXT("Interaction failed: Conditions not met!"));
-
-		return;
-	}
-
-	if (!bCanInteract) return;
-
+	OnInteract(Interactor);
 	UE_LOG(
 		LogTemp, 
 		Display, 
@@ -118,7 +129,19 @@ void AOB_InteractableActor::Interact_Implementation(ACharacter* Interactor) {
 	);
 }
 
-void AOB_InteractableActor::PlayWidgetClickAnim() {
+void AOB_InteractableActor::OnInteract_Implementation(ACharacter* Interactor) {
+	
+}
+
+// void AOB_InteractableActor::Server_Interact_Reliable_Implementation(ACharacter* Interactor) {
+//     OnInteract_Implementation(Interactor);
+// }
+
+// void AOB_InteractableActor::Server_Interact_Unreliable_Implementation(ACharacter* Interactor) {
+//     OnInteract_Implementation(Interactor);
+// }
+
+void AOB_InteractableActor::PlayWidgetClickAnim_Implementation() {
 	if (IsValid(InteractionWidgetInstance)) {
 		InteractionWidgetInstance->PlayClickAnim();
 	}

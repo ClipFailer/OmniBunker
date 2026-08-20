@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Исходный файл Source/OmniBunker/Characters/OB_BaseCharacter.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_o_b___base_character_8cpp_source.html','',''); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">OB_BaseCharacter.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_o_b___base_character_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (c) 2026 OmniBunker Team. All rights reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___base_character_8h.html">OB_BaseCharacter.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;GameFramework/CharacterMovementComponent.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Camera/CameraComponent.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Components/CapsuleComponent.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___health_component_8h.html">../Components/OB_HealthComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_stamina_component_8h.html">../Components/StaminaComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___interaction_component_8h.html">../Components/OB_InteractionComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_inventory_component_8h.html">../Components/InventoryComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="_characteristic_component_8h.html">../Components/CharacteristicComponent.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_o_b___inventory_actor_8h.html">../Interaction/OB_InventoryActor.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a39d31493eb32d3392f1a33242e229d3b">   15</a></span><a class="code hl_function" href="class_a_o_b___base_character.html#a39d31493eb32d3392f1a33242e229d3b">AOB_BaseCharacter::AOB_BaseCharacter</a>()</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    PrimaryActorTick.bCanEverTick = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// bReplicates = true;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a0d23883fb6191e34a863b274e09c21d1">Camera</a> = CreateDefaultSubobject&lt;UCameraComponent&gt;(TEXT(<span class="stringliteral">&quot;Camera&quot;</span>));</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a0d23883fb6191e34a863b274e09c21d1">Camera</a>-&gt;SetupAttachment(GetCapsuleComponent());</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a0d23883fb6191e34a863b274e09c21d1">Camera</a>-&gt;bUsePawnControlRotation = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#af4a09549210af96a2ed9935d768596a1">HealthComponent</a> = CreateDefaultSubobject&lt;UOB_HealthComponent&gt;(TEXT(<span class="stringliteral">&quot;HealthComponent&quot;</span>));</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a> = CreateDefaultSubobject&lt;UStaminaComponent&gt;(TEXT(<span class="stringliteral">&quot;StaminaComponent&quot;</span>));</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#ac4d07718ac36603ad2ee19eacea98bd4">InteractionComponent</a> = CreateDefaultSubobject&lt;UOB_InteractionComponent&gt;(TEXT(<span class="stringliteral">&quot;InteractionComponent&quot;</span>));</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a3481f732a28386e8532a7bea7cb02d4e">InventoryComp</a> = CreateDefaultSubobject&lt;UInventoryComponent&gt;(TEXT(<span class="stringliteral">&quot;InventoryComp&quot;</span>));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#abe5919c207e115a79ac38c20d890bca8">CharacteristicComponent</a> = CreateDefaultSubobject&lt;UCharacteristicComponent&gt;(TEXT(<span class="stringliteral">&quot;CharacteristicComponent&quot;</span>));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a36a090cd56bdff0aea940640c7268812">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#a36a090cd56bdff0aea940640c7268812">AOB_BaseCharacter::BeginPlay</a>()</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Super::BeginPlay();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    UE_LOG(</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        LogTemp, </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        Display, </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        TEXT(<span class="stringliteral">&quot;Character BeginPlay: %s, Controller: %s&quot;</span>), </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        *GetName(), </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        *GetNameSafe(GetController())</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    );</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>) </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;OnStaminaEndedDelegate.AddDynamic(<span class="keyword">this</span>, &amp;ThisClass::OnStaminaEnded);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a35ecfc44a0986321d5cf190e95d3b46a">   50</a></span>UInventoryComponent* <a class="code hl_function" href="class_a_o_b___base_character.html#a35ecfc44a0986321d5cf190e95d3b46a">AOB_BaseCharacter::GetInventoryComp_Implementation</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_a_o_b___base_character.html#a3481f732a28386e8532a7bea7cb02d4e">InventoryComp</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a06074515b87d336a68e8ab218e53b6d5">   55</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_a_o_b___base_character.html#a06074515b87d336a68e8ab218e53b6d5">AOB_BaseCharacter::Pickup_Implementation</a>(<a class="code hl_class" href="class_a_o_b___inventory_actor.html">AOB_InventoryActor</a>* InventoryActor) </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">if</span> (!InventoryActor || !<a class="code hl_variable" href="class_a_o_b___base_character.html#a3481f732a28386e8532a7bea7cb02d4e">InventoryComp</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_a_o_b___base_character.html#a3481f732a28386e8532a7bea7cb02d4e">InventoryComp</a>-&gt;AddItem(</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        InventoryActor-&gt;<a class="code hl_function" href="class_a_o_b___inventory_actor.html#a3823fb6b5d90e869701d06efbdc1fda9">GetItemData</a>(), </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        InventoryActor-&gt;<a class="code hl_function" href="class_a_o_b___inventory_actor.html#a9249fdef9d319ca365ee38f713d2b1f3">GetQuantity</a>()</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    );</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a923a55b89a7ba7b7adc2df62a67d660c">   65</a></span>UOB_InteractionComponent* <a class="code hl_function" href="class_a_o_b___base_character.html#a923a55b89a7ba7b7adc2df62a67d660c">AOB_BaseCharacter::GetInteractionComp_Implementation</a>()<span class="keyword"> const </span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_a_o_b___base_character.html#ac4d07718ac36603ad2ee19eacea98bd4">InteractionComponent</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a072a3dc61173e224a7980c8ca4957541">   70</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#a072a3dc61173e224a7980c8ca4957541">AOB_BaseCharacter::Tick</a>(<span class="keywordtype">float</span> DeltaTime)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Super::Tick(DeltaTime);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> AOB_BaseCharacter::Server_Interact_Implementation(<a class="code hl_class" href="class_a_actor.html">AActor</a>* Target) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">if</span> (GetLocalRole() != ROLE_Authority) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span> (!Target-&gt;Implements&lt;<a class="code hl_class" href="class_i_interactable.html">IInteractable</a>&gt;()) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a22535f37f30bd22369bb43a35c1ff299">   83</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#a22535f37f30bd22369bb43a35c1ff299">AOB_BaseCharacter::Move</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">const</span> FVector2D Axis = Value.Get&lt;FVector2D&gt;();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">if</span> (Controller) </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">const</span> FRotator ControlRotator = FRotator(0.f, Controller-&gt;GetControlRotation().Yaw, 0.f);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">const</span> FVector Forward = FRotationMatrix(ControlRotator).GetUnitAxis(EAxis::X);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">const</span> FVector Right = FRotationMatrix(ControlRotator).GetUnitAxis(EAxis::Y);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        AddMovementInput(Forward, Axis.Y);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        AddMovementInput(Right, Axis.X);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#adc373389feec74baa359e756f9484963">   98</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#adc373389feec74baa359e756f9484963">AOB_BaseCharacter::Look</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">const</span> FVector2D Axis = Value.Get&lt;FVector2D&gt;();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">if</span> (Controller) </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        AddControllerYawInput(Axis.X);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        AddControllerPitchInput(-Axis.Y);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#ab31fd9ffd85beff713ee1020ad7451b4">  109</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#ab31fd9ffd85beff713ee1020ad7451b4">AOB_BaseCharacter::StartSprint</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a> || <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;GetCurrentStamina() &lt; <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;GetMinStaminaToSprint())</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">if</span> (GetCharacterMovement())</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        GetCharacterMovement()-&gt;MaxWalkSpeed = <a class="code hl_variable" href="class_a_o_b___base_character.html#a9d5d097e266046aed7e45ac01d3579e3">SprintSpeed</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;StartDecreaseStamina();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#ad3250697743b294fcaba1b14ada3b12b">  120</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#ad3250697743b294fcaba1b14ada3b12b">AOB_BaseCharacter::StopSprint</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">if</span> (GetCharacterMovement())</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        GetCharacterMovement()-&gt;MaxWalkSpeed = <a class="code hl_variable" href="class_a_o_b___base_character.html#a338ca02002be585e102d21ad9d63a342">WalkSpeed</a>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;StartIncreaseStamina();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#ac1a02e3465bf2c0c66f136cfd991dc8a">  129</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#ac1a02e3465bf2c0c66f136cfd991dc8a">AOB_BaseCharacter::OnStaminaEnded</a>() </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">if</span> (GetCharacterMovement()) </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        GetCharacterMovement()-&gt;MaxWalkSpeed = <a class="code hl_variable" href="class_a_o_b___base_character.html#a338ca02002be585e102d21ad9d63a342">WalkSpeed</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>) </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;StartIncreaseStamina();</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a3ccce57c5f7bcb758d4fd459c54f8c76">  142</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#a3ccce57c5f7bcb758d4fd459c54f8c76">AOB_BaseCharacter::DoJump</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a> || <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;GetCurrentStamina() &lt; <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;GetMinStaminaToJump())</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    Jump();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;SpendStamina(<a class="code hl_variable" href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">StaminaComponent</a>-&gt;GetMinStaminaToJump());</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>}</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="class_a_o_b___base_character.html#a312141bdf6c92e84b8ad2b5e08545ba7">  152</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_o_b___base_character.html#a312141bdf6c92e84b8ad2b5e08545ba7">AOB_BaseCharacter::Interact</a>(<span class="keyword">const</span> FInputActionValue&amp; Value) </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_a_o_b___base_character.html#ac4d07718ac36603ad2ee19eacea98bd4">InteractionComponent</a>) </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <a class="code hl_variable" href="class_a_o_b___base_character.html#ac4d07718ac36603ad2ee19eacea98bd4">InteractionComponent</a>-&gt;Interact();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>}</div>
+</div>
+<div class="ttc" id="a_characteristic_component_8h_html"><div class="ttname"><a href="_characteristic_component_8h.html">CharacteristicComponent.h</a></div></div>
+<div class="ttc" id="a_inventory_component_8h_html"><div class="ttname"><a href="_inventory_component_8h.html">InventoryComponent.h</a></div></div>
+<div class="ttc" id="a_o_b___base_character_8h_html"><div class="ttname"><a href="_o_b___base_character_8h.html">OB_BaseCharacter.h</a></div></div>
+<div class="ttc" id="a_o_b___health_component_8h_html"><div class="ttname"><a href="_o_b___health_component_8h.html">OB_HealthComponent.h</a></div></div>
+<div class="ttc" id="a_o_b___interaction_component_8h_html"><div class="ttname"><a href="_o_b___interaction_component_8h.html">OB_InteractionComponent.h</a></div></div>
+<div class="ttc" id="a_o_b___inventory_actor_8h_html"><div class="ttname"><a href="_o_b___inventory_actor_8h.html">OB_InventoryActor.h</a></div></div>
+<div class="ttc" id="a_stamina_component_8h_html"><div class="ttname"><a href="_stamina_component_8h.html">StaminaComponent.h</a></div></div>
+<div class="ttc" id="aclass_a_actor_html"><div class="ttname"><a href="class_a_actor.html">AActor</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a06074515b87d336a68e8ab218e53b6d5"><div class="ttname"><a href="class_a_o_b___base_character.html#a06074515b87d336a68e8ab218e53b6d5">AOB_BaseCharacter::Pickup_Implementation</a></div><div class="ttdeci">virtual bool Pickup_Implementation(AOB_InventoryActor *InventoryActor) override</div><div class="ttdoc">C++ Реализация UOB_CharacterInterface::Pickup.</div><div class="ttdef"><b>Определения</b> <a href="#l00055">OB_BaseCharacter.cpp:55</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a072a3dc61173e224a7980c8ca4957541"><div class="ttname"><a href="class_a_o_b___base_character.html#a072a3dc61173e224a7980c8ca4957541">AOB_BaseCharacter::Tick</a></div><div class="ttdeci">virtual void Tick(float DeltaTime) override</div><div class="ttdef"><b>Определения</b> <a href="#l00070">OB_BaseCharacter.cpp:70</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a0d23883fb6191e34a863b274e09c21d1"><div class="ttname"><a href="class_a_o_b___base_character.html#a0d23883fb6191e34a863b274e09c21d1">AOB_BaseCharacter::Camera</a></div><div class="ttdeci">std::shared_ptr&lt; UCameraComponent &gt; Camera</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00090">OB_BaseCharacter.h:90</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a22535f37f30bd22369bb43a35c1ff299"><div class="ttname"><a href="class_a_o_b___base_character.html#a22535f37f30bd22369bb43a35c1ff299">AOB_BaseCharacter::Move</a></div><div class="ttdeci">void Move(const FInputActionValue &amp;Value)</div><div class="ttdoc">Выполняет движение игрока.</div><div class="ttdef"><b>Определения</b> <a href="#l00083">OB_BaseCharacter.cpp:83</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a312141bdf6c92e84b8ad2b5e08545ba7"><div class="ttname"><a href="class_a_o_b___base_character.html#a312141bdf6c92e84b8ad2b5e08545ba7">AOB_BaseCharacter::Interact</a></div><div class="ttdeci">void Interact(const FInputActionValue &amp;Value)</div><div class="ttdoc">Выполняет взаимодействие игрока с интерактивными объектами.</div><div class="ttdef"><b>Определения</b> <a href="#l00152">OB_BaseCharacter.cpp:152</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a338ca02002be585e102d21ad9d63a342"><div class="ttname"><a href="class_a_o_b___base_character.html#a338ca02002be585e102d21ad9d63a342">AOB_BaseCharacter::WalkSpeed</a></div><div class="ttdeci">float WalkSpeed</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00110">OB_BaseCharacter.h:110</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a3481f732a28386e8532a7bea7cb02d4e"><div class="ttname"><a href="class_a_o_b___base_character.html#a3481f732a28386e8532a7bea7cb02d4e">AOB_BaseCharacter::InventoryComp</a></div><div class="ttdeci">std::shared_ptr&lt; UInventoryComponent &gt; InventoryComp</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00102">OB_BaseCharacter.h:102</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a35ecfc44a0986321d5cf190e95d3b46a"><div class="ttname"><a href="class_a_o_b___base_character.html#a35ecfc44a0986321d5cf190e95d3b46a">AOB_BaseCharacter::GetInventoryComp_Implementation</a></div><div class="ttdeci">virtual UInventoryComponent * GetInventoryComp_Implementation() const override</div><div class="ttdoc">C++ Реализация UOB_CharacterInterface::GetInventoryComp.</div><div class="ttdef"><b>Определения</b> <a href="#l00050">OB_BaseCharacter.cpp:50</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a36a090cd56bdff0aea940640c7268812"><div class="ttname"><a href="class_a_o_b___base_character.html#a36a090cd56bdff0aea940640c7268812">AOB_BaseCharacter::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Определения</b> <a href="#l00032">OB_BaseCharacter.cpp:32</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a39d31493eb32d3392f1a33242e229d3b"><div class="ttname"><a href="class_a_o_b___base_character.html#a39d31493eb32d3392f1a33242e229d3b">AOB_BaseCharacter::AOB_BaseCharacter</a></div><div class="ttdeci">AOB_BaseCharacter()</div><div class="ttdef"><b>Определения</b> <a href="#l00015">OB_BaseCharacter.cpp:15</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a3ccce57c5f7bcb758d4fd459c54f8c76"><div class="ttname"><a href="class_a_o_b___base_character.html#a3ccce57c5f7bcb758d4fd459c54f8c76">AOB_BaseCharacter::DoJump</a></div><div class="ttdeci">void DoJump(const FInputActionValue &amp;Value)</div><div class="ttdoc">Выполняет прыжок.</div><div class="ttdef"><b>Определения</b> <a href="#l00142">OB_BaseCharacter.cpp:142</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a4a52222b8dd5106db798b77d504b06f5"><div class="ttname"><a href="class_a_o_b___base_character.html#a4a52222b8dd5106db798b77d504b06f5">AOB_BaseCharacter::StaminaComponent</a></div><div class="ttdeci">std::shared_ptr&lt; UStaminaComponent &gt; StaminaComponent</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00096">OB_BaseCharacter.h:96</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a923a55b89a7ba7b7adc2df62a67d660c"><div class="ttname"><a href="class_a_o_b___base_character.html#a923a55b89a7ba7b7adc2df62a67d660c">AOB_BaseCharacter::GetInteractionComp_Implementation</a></div><div class="ttdeci">virtual UOB_InteractionComponent * GetInteractionComp_Implementation() const override</div><div class="ttdef"><b>Определения</b> <a href="#l00065">OB_BaseCharacter.cpp:65</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_a9d5d097e266046aed7e45ac01d3579e3"><div class="ttname"><a href="class_a_o_b___base_character.html#a9d5d097e266046aed7e45ac01d3579e3">AOB_BaseCharacter::SprintSpeed</a></div><div class="ttdeci">float SprintSpeed</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00113">OB_BaseCharacter.h:113</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_ab31fd9ffd85beff713ee1020ad7451b4"><div class="ttname"><a href="class_a_o_b___base_character.html#ab31fd9ffd85beff713ee1020ad7451b4">AOB_BaseCharacter::StartSprint</a></div><div class="ttdeci">void StartSprint(const FInputActionValue &amp;Value)</div><div class="ttdoc">Начинает бег игрока.</div><div class="ttdef"><b>Определения</b> <a href="#l00109">OB_BaseCharacter.cpp:109</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_abe5919c207e115a79ac38c20d890bca8"><div class="ttname"><a href="class_a_o_b___base_character.html#abe5919c207e115a79ac38c20d890bca8">AOB_BaseCharacter::CharacteristicComponent</a></div><div class="ttdeci">std::shared_ptr&lt; UCharacteristicComponent &gt; CharacteristicComponent</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00105">OB_BaseCharacter.h:105</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_ac1a02e3465bf2c0c66f136cfd991dc8a"><div class="ttname"><a href="class_a_o_b___base_character.html#ac1a02e3465bf2c0c66f136cfd991dc8a">AOB_BaseCharacter::OnStaminaEnded</a></div><div class="ttdeci">void OnStaminaEnded()</div><div class="ttdoc">Вызывается при истощении стамины.</div><div class="ttdef"><b>Определения</b> <a href="#l00129">OB_BaseCharacter.cpp:129</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_ac4d07718ac36603ad2ee19eacea98bd4"><div class="ttname"><a href="class_a_o_b___base_character.html#ac4d07718ac36603ad2ee19eacea98bd4">AOB_BaseCharacter::InteractionComponent</a></div><div class="ttdeci">std::shared_ptr&lt; UOB_InteractionComponent &gt; InteractionComponent</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00099">OB_BaseCharacter.h:99</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_ad3250697743b294fcaba1b14ada3b12b"><div class="ttname"><a href="class_a_o_b___base_character.html#ad3250697743b294fcaba1b14ada3b12b">AOB_BaseCharacter::StopSprint</a></div><div class="ttdeci">void StopSprint(const FInputActionValue &amp;Value)</div><div class="ttdoc">Завершает бег игрока.</div><div class="ttdef"><b>Определения</b> <a href="#l00120">OB_BaseCharacter.cpp:120</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_adc373389feec74baa359e756f9484963"><div class="ttname"><a href="class_a_o_b___base_character.html#adc373389feec74baa359e756f9484963">AOB_BaseCharacter::Look</a></div><div class="ttdeci">void Look(const FInputActionValue &amp;Value)</div><div class="ttdoc">Выполняет движение камеры игрока.</div><div class="ttdef"><b>Определения</b> <a href="#l00098">OB_BaseCharacter.cpp:98</a></div></div>
+<div class="ttc" id="aclass_a_o_b___base_character_html_af4a09549210af96a2ed9935d768596a1"><div class="ttname"><a href="class_a_o_b___base_character.html#af4a09549210af96a2ed9935d768596a1">AOB_BaseCharacter::HealthComponent</a></div><div class="ttdeci">std::shared_ptr&lt; UOB_HealthComponent &gt; HealthComponent</div><div class="ttdef"><b>Определения</b> <a href="_o_b___base_character_8h_source.html#l00093">OB_BaseCharacter.h:93</a></div></div>
+<div class="ttc" id="aclass_a_o_b___inventory_actor_html"><div class="ttname"><a href="class_a_o_b___inventory_actor.html">AOB_InventoryActor</a></div><div class="ttdef"><b>Определения</b> <a href="_o_b___inventory_actor_8h_source.html#l00015">OB_InventoryActor.h:16</a></div></div>
+<div class="ttc" id="aclass_a_o_b___inventory_actor_html_a3823fb6b5d90e869701d06efbdc1fda9"><div class="ttname"><a href="class_a_o_b___inventory_actor.html#a3823fb6b5d90e869701d06efbdc1fda9">AOB_InventoryActor::GetItemData</a></div><div class="ttdeci">UOB_InventoryItemData * GetItemData() const</div><div class="ttdef"><b>Определения</b> <a href="_o_b___inventory_actor_8h_source.html#l00021">OB_InventoryActor.h:21</a></div></div>
+<div class="ttc" id="aclass_a_o_b___inventory_actor_html_a9249fdef9d319ca365ee38f713d2b1f3"><div class="ttname"><a href="class_a_o_b___inventory_actor.html#a9249fdef9d319ca365ee38f713d2b1f3">AOB_InventoryActor::GetQuantity</a></div><div class="ttdeci">int32 GetQuantity() const</div><div class="ttdef"><b>Определения</b> <a href="_o_b___inventory_actor_8h_source.html#l00022">OB_InventoryActor.h:22</a></div></div>
+<div class="ttc" id="aclass_i_interactable_html"><div class="ttname"><a href="class_i_interactable.html">IInteractable</a></div><div class="ttdoc">Интерфейс для экторов с которыми может взаимодействовать игрок</div><div class="ttdef"><b>Определения</b> <a href="_interactable_8h_source.html#l00018">Interactable.h:19</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_a3883cd9c99d4de3ebfc3e1cb8375b9e.html">OmniBunker</a></li><li class="navelem"><a href="dir_3988f752dd5b18585916690d9ce9959b.html">Characters</a></li><li class="navelem"><a href="_o_b___base_character_8cpp.html">OB_BaseCharacter.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

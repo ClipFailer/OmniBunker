@@ -10,6 +10,7 @@
 #define ECC_InteractionTrace  ECC_GameTraceChannel2
 
 class UBoxComponent;
+class AOB_BaseCharacter;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class OMNIBUNKER_API UOB_InteractionComponent : public UActorComponent
@@ -20,6 +21,18 @@ public:
 	UOB_InteractionComponent();
 
 	void Interact();
+
+	/// @brief Метод, проверяющий, находится ли эктор в зоне взаимодействия игрока. 
+	/// Вызывается на сервере
+	/// @return true Эктор в зоне взаимодействия.
+	/// @return false Эктор не в зоне взаимодействия.
+	bool IsTargetActorNearToPlayer() const;
+
+	/// @brief Возвращает эктор, на который навелся игрок.
+	/// @return AActor* эктор, на который навелся игрок.
+	AActor* GetCurrentTargetActor() { return CurrentTargetActor; };
+
+	AActor* DoInteractionTrace_Server();
 
 protected:
 	virtual void BeginPlay() override;
@@ -62,7 +75,13 @@ protected:
 
 private:
 	UPROPERTY()
+	AOB_BaseCharacter* Owner;
+
+	UPROPERTY()
 	AActor* CurrentTargetActor = nullptr;
+
+	UPROPERTY()
+	TArray<TObjectPtr<AActor>> InteractablesInRange;
 
 	int32 InteractablesInRangeCount = 0;
 };

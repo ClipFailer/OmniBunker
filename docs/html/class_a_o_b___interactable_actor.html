@@ -1,0 +1,907 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Класс AOB_InteractableActor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_a_o_b___interactable_actor.html','','class_a_o_b___interactable_actor-members'); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс AOB_InteractableActor</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс интерактивного эктора Предназначен для интерактивных объектов, с которыми игрок может взаимодействовать.  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:AOB_InteractableActor:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_a_o_b___interactable_actor.png" usemap="#AOB_5FInteractableActor_map" alt=""/>
+  <map id="AOB_5FInteractableActor_map" name="AOB_5FInteractableActor_map">
+<area href="class_a_actor.html" alt="AActor" shape="rect" coords="0,0,143,24"/>
+<area href="class_i_interactable.html" title="Интерфейс для экторов с которыми может взаимодействовать игрок" alt="IInteractable" shape="rect" coords="153,0,296,24"/>
+<area href="class_a_o_b___inventory_actor.html" alt="AOB_InventoryActor" shape="rect" coords="76,112,219,136"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a246b7a766076727050d8e5dcca57d042" id="r_a246b7a766076727050d8e5dcca57d042"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a246b7a766076727050d8e5dcca57d042">AOB_InteractableActor</a> ()</td></tr>
+<tr class="memitem:a58d3cd8d0cfcd23a6c52f8971df6cb0c" id="r_a58d3cd8d0cfcd23a6c52f8971df6cb0c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a58d3cd8d0cfcd23a6c52f8971df6cb0c">ShowInteractionHint_Implementation</a> () override</td></tr>
+<tr class="memdesc:a58d3cd8d0cfcd23a6c52f8971df6cb0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Реализация показа виджета взаимодействия.  <br /></td></tr>
+<tr class="memitem:a46bef86b873e45b4202cb80b0bd3dca9" id="r_a46bef86b873e45b4202cb80b0bd3dca9"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a46bef86b873e45b4202cb80b0bd3dca9">HideInteractionHint_Implementation</a> () override</td></tr>
+<tr class="memdesc:a46bef86b873e45b4202cb80b0bd3dca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Реализация скрытия виджета взаимодействия.  <br /></td></tr>
+<tr class="memitem:a4b39eff6a4f59dced6bd3b2c9f4c58e6" id="r_a4b39eff6a4f59dced6bd3b2c9f4c58e6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4b39eff6a4f59dced6bd3b2c9f4c58e6">CanInteract_Implementation</a> (<a class="el" href="class_a_actor.html">AActor</a> *Interactor) const</td></tr>
+<tr class="memdesc:a4b39eff6a4f59dced6bd3b2c9f4c58e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">C++ Реализация <a class="el" href="class_i_interactable.html#a01cf7a42c0c879aca61e5ff7a75294e4" title="IInteractable::CanInteract">IInteractable::CanInteract</a>.  <br /></td></tr>
+<tr class="memitem:aa31f52c16a03776442f0c90999ebfcf9" id="r_aa31f52c16a03776442f0c90999ebfcf9"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aa31f52c16a03776442f0c90999ebfcf9">GetSpawnWeight</a> () const</td></tr>
+<tr class="memdesc:aa31f52c16a03776442f0c90999ebfcf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает вес (логический) вес эктора Необходим для случайного выбора эктора для спауна.  <br /></td></tr>
+<tr class="memitem:ada63120cd566b82c4794bf903b2cc6a2" id="r_ada63120cd566b82c4794bf903b2cc6a2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ada63120cd566b82c4794bf903b2cc6a2">DisableInteraction</a> ()</td></tr>
+<tr class="memdesc:ada63120cd566b82c4794bf903b2cc6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отключает возможность взаимодействия с эктором.  <br /></td></tr>
+<tr class="inherit_header pub_methods_class_i_interactable"><td colspan="2">Открытые члены унаследованные от <a class="el" href="class_i_interactable.html">IInteractable</a></td></tr>
+<tr class="memitem:a582435ebb8bf7c12b4453a75ed33c591 pub_methods_class_i_interactable" id="r_a582435ebb8bf7c12b4453a75ed33c591"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_i_interactable.html#a582435ebb8bf7c12b4453a75ed33c591">Interact</a> (<a class="el" href="class_a_character.html">ACharacter</a> *Interactor)</td></tr>
+<tr class="memdesc:a582435ebb8bf7c12b4453a75ed33c591 pub_methods_class_i_interactable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обёртка взаимодействия игрока Метод вызывается при взаимодействии игрока с эктором.  <br /></td></tr>
+<tr class="memitem:a01cf7a42c0c879aca61e5ff7a75294e4 pub_methods_class_i_interactable" id="r_a01cf7a42c0c879aca61e5ff7a75294e4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_i_interactable.html#a01cf7a42c0c879aca61e5ff7a75294e4">CanInteract</a> (<a class="el" href="class_a_actor.html">AActor</a> *Interactor)</td></tr>
+<tr class="memdesc:a01cf7a42c0c879aca61e5ff7a75294e4 pub_methods_class_i_interactable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет выполнены ли Условия для взаимодействия  <br /></td></tr>
+<tr class="memitem:ae5a5b64a532d0628d133ead0fc1a07a0 pub_methods_class_i_interactable" id="r_ae5a5b64a532d0628d133ead0fc1a07a0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_i_interactable.html#ae5a5b64a532d0628d133ead0fc1a07a0">ShowInteractionHint</a> ()</td></tr>
+<tr class="memitem:a26ce95e208556c6e397f11e340a79e7d pub_methods_class_i_interactable" id="r_a26ce95e208556c6e397f11e340a79e7d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_i_interactable.html#a26ce95e208556c6e397f11e340a79e7d">HideInteractionHint</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:acf52ca1740ad8d36338e1212235c83de" id="r_acf52ca1740ad8d36338e1212235c83de"><td class="memItemLeft">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_u_o_b___condition.html">UOB_Condition</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#acf52ca1740ad8d36338e1212235c83de">InteractionConditions</a></td></tr>
+<tr class="memdesc:acf52ca1740ad8d36338e1212235c83de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Условия для успешного взаимодействия  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:abbb5df1da2919da45e878efb5376856b" id="r_abbb5df1da2919da45e878efb5376856b"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#abbb5df1da2919da45e878efb5376856b">BeginPlay</a> () override</td></tr>
+<tr class="memitem:ae62990788245680a833ae1293e2be8fc" id="r_ae62990788245680a833ae1293e2be8fc"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae62990788245680a833ae1293e2be8fc">Interact_Implementation</a> (<a class="el" href="class_a_character.html">ACharacter</a> *Interactor) override</td></tr>
+<tr class="memdesc:ae62990788245680a833ae1293e2be8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">С++ реализация <a class="el" href="class_i_interactable.html#a582435ebb8bf7c12b4453a75ed33c591" title="IInteractable::Interact">IInteractable::Interact</a>.  <br /></td></tr>
+<tr class="memitem:a9a70255e17a3da54b25ffc06b78d64fb" id="r_a9a70255e17a3da54b25ffc06b78d64fb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9a70255e17a3da54b25ffc06b78d64fb">OnInteract</a> (<a class="el" href="class_a_character.html">ACharacter</a> *Interactor)</td></tr>
+<tr class="memdesc:a9a70255e17a3da54b25ffc06b78d64fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Реализация взаимодействия - вызвается при взаимодействии с эктором.  <br /></td></tr>
+<tr class="memitem:a492c7e788b34920d4848b8a88dab1e90" id="r_a492c7e788b34920d4848b8a88dab1e90"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a492c7e788b34920d4848b8a88dab1e90">OnInteract_Implementation</a> (<a class="el" href="class_a_character.html">ACharacter</a> *Interactor)</td></tr>
+<tr class="memdesc:a492c7e788b34920d4848b8a88dab1e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">С++ реализация <a class="el" href="#a9a70255e17a3da54b25ffc06b78d64fb" title="AOB_InteractableActor::OnInteract">AOB_InteractableActor::OnInteract</a>.  <br /></td></tr>
+<tr class="memitem:afa7b640a460b94c0146c4ca27f45356b" id="r_afa7b640a460b94c0146c4ca27f45356b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa7b640a460b94c0146c4ca27f45356b">ShouldUseReliableRPC</a> ()</td></tr>
+<tr class="memdesc:afa7b640a460b94c0146c4ca27f45356b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Реализация взаимодействия - Сервер (Reliable) Метод вызывается если эктор реплицируется.  <br /></td></tr>
+<tr class="memitem:a7faebd6a9d7f540c684eb89a4fb3ec0d" id="r_a7faebd6a9d7f540c684eb89a4fb3ec0d"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a7faebd6a9d7f540c684eb89a4fb3ec0d">ShouldUseReliableRPC_Implementation</a> ()</td></tr>
+<tr class="memdesc:a7faebd6a9d7f540c684eb89a4fb3ec0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">C++ Реализация метода <a class="el" href="#afa7b640a460b94c0146c4ca27f45356b" title="AOB_InteractableActor::ShouldUseReliableRPC">AOB_InteractableActor::ShouldUseReliableRPC</a>.  <br /></td></tr>
+<tr class="memitem:aec54967c5ebece61cf8d7eac6d2c1106" id="r_aec54967c5ebece61cf8d7eac6d2c1106"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aec54967c5ebece61cf8d7eac6d2c1106">PlayWidgetClickAnim</a> ()</td></tr>
+<tr class="memdesc:aec54967c5ebece61cf8d7eac6d2c1106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проигрывает анимацию нажатия для виджета взаимодействия  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a2159f5f8300915d9e68d9f6f44eb6c88" id="r_a2159f5f8300915d9e68d9f6f44eb6c88"><td class="memItemLeft">UStaticMeshComponent *&#160;</td><td class="memItemRight"><a class="el" href="#a2159f5f8300915d9e68d9f6f44eb6c88">MeshComponent</a></td></tr>
+<tr class="memitem:a56282c3deb96f813454ed2ec63475c63" id="r_a56282c3deb96f813454ed2ec63475c63"><td class="memItemLeft">UWidgetComponent *&#160;</td><td class="memItemRight"><a class="el" href="#a56282c3deb96f813454ed2ec63475c63">InteractionWidgetComp</a></td></tr>
+<tr class="memitem:a2bca24fb67b91ec66f175dc0e29af3f7" id="r_a2bca24fb67b91ec66f175dc0e29af3f7"><td class="memItemLeft">class&lt; <a class="el" href="class_u_interaction_hint_widget.html">UInteractionHintWidget</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2bca24fb67b91ec66f175dc0e29af3f7">InteractionWidgetClass</a></td></tr>
+<tr class="memdesc:a2bca24fb67b91ec66f175dc0e29af3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс для отображения виджета взаимодействия По умолчанию используется UInteractionHint (WBP_InteractionHint).  <br /></td></tr>
+<tr class="memitem:aa3919e6b1fe3af062e8ce01f072baa2a" id="r_aa3919e6b1fe3af062e8ce01f072baa2a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa3919e6b1fe3af062e8ce01f072baa2a">bCanInteract</a> = true</td></tr>
+<tr class="memdesc:aa3919e6b1fe3af062e8ce01f072baa2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определяет, можно ли взаимодействовать с эктором  <br /></td></tr>
+<tr class="memitem:ac18be5c430bd961eb19184c21cd8964c" id="r_ac18be5c430bd961eb19184c21cd8964c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac18be5c430bd961eb19184c21cd8964c">bSimulatePhysics</a> = true</td></tr>
+<tr class="memdesc:ac18be5c430bd961eb19184c21cd8964c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Симиулирует ли физику эктор  <br /></td></tr>
+<tr class="memitem:a1617da7d2b9d50ec2300a1fd5d1f3017" id="r_a1617da7d2b9d50ec2300a1fd5d1f3017"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a1617da7d2b9d50ec2300a1fd5d1f3017">SpawnWeight</a> = 1</td></tr>
+<tr class="memdesc:a1617da7d2b9d50ec2300a1fd5d1f3017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Логический вес эктора  <br /></td></tr>
+<tr class="memitem:a48cf51c8ca401dc486114f39951ab158" id="r_a48cf51c8ca401dc486114f39951ab158"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a48cf51c8ca401dc486114f39951ab158">Weight</a></td></tr>
+<tr class="memdesc:a48cf51c8ca401dc486114f39951ab158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Физический вес эктора  <br /></td></tr>
+<tr class="memitem:a49275f611ff3810af3bb092975e57cd8" id="r_a49275f611ff3810af3bb092975e57cd8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a49275f611ff3810af3bb092975e57cd8">bCanHighlight</a> = true</td></tr>
+<tr class="memdesc:a49275f611ff3810af3bb092975e57cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Показывается ли виджет взаимодействия  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:ac5ed51d967f6b8c9774011ee2265f0f0" id="r_ac5ed51d967f6b8c9774011ee2265f0f0"><td class="memItemLeft"><a class="el" href="class_u_interaction_hint_widget.html">UInteractionHintWidget</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac5ed51d967f6b8c9774011ee2265f0f0">InteractionWidgetInstance</a> = nullptr</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс интерактивного эктора Предназначен для интерактивных объектов, с которыми игрок может взаимодействовать. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00027">27</a></p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a246b7a766076727050d8e5dcca57d042" name="a246b7a766076727050d8e5dcca57d042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a246b7a766076727050d8e5dcca57d042">&#9670;&#160;</a></span>AOB_InteractableActor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AOB_InteractableActor::AOB_InteractableActor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00021">21</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00017">ECC_InteractionObject</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00018">ECC_InteractionTrace</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00109">InteractionWidgetClass</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00104">InteractionWidgetComp</a> и <a class="el" href="_o_b___interactable_actor_8h_source.html#l00101">MeshComponent</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a58d3cd8d0cfcd23a6c52f8971df6cb0c" name="a58d3cd8d0cfcd23a6c52f8971df6cb0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d3cd8d0cfcd23a6c52f8971df6cb0c">&#9670;&#160;</a></span>ShowInteractionHint_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::ShowInteractionHint_Implementation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Реализация показа виджета взаимодействия. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00059">59</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00128">bCanHighlight</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00104">InteractionWidgetComp</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00132">InteractionWidgetInstance</a> и <a class="el" href="_interaction_hint_widget_8cpp_source.html#l00006">UInteractionHintWidget::PlayAppearAnim()</a>.</p>
+
+</div>
+</div>
+<a id="a46bef86b873e45b4202cb80b0bd3dca9" name="a46bef86b873e45b4202cb80b0bd3dca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46bef86b873e45b4202cb80b0bd3dca9">&#9670;&#160;</a></span>HideInteractionHint_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::HideInteractionHint_Implementation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Реализация скрытия виджета взаимодействия. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00069">69</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00128">bCanHighlight</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00132">InteractionWidgetInstance</a> и <a class="el" href="_interaction_hint_widget_8cpp_source.html#l00006">UInteractionHintWidget::PlayAppearAnim()</a>.</p>
+
+</div>
+</div>
+<a id="a4b39eff6a4f59dced6bd3b2c9f4c58e6" name="a4b39eff6a4f59dced6bd3b2c9f4c58e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b39eff6a4f59dced6bd3b2c9f4c58e6">&#9670;&#160;</a></span>CanInteract_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AOB_InteractableActor::CanInteract_Implementation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_actor.html">AActor</a> *</td>          <td class="paramname"><span class="paramname"><em>Interactor</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>C++ Реализация <a class="el" href="class_i_interactable.html#a01cf7a42c0c879aca61e5ff7a75294e4" title="IInteractable::CanInteract">IInteractable::CanInteract</a>. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00076">76</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00044">InteractionConditions</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00110">Interact_Implementation()</a>.</p>
+
+</div>
+</div>
+<a id="aa31f52c16a03776442f0c90999ebfcf9" name="aa31f52c16a03776442f0c90999ebfcf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa31f52c16a03776442f0c90999ebfcf9">&#9670;&#160;</a></span>GetSpawnWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AOB_InteractableActor::GetSpawnWeight </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает вес (логический) вес эктора Необходим для случайного выбора эктора для спауна. </p>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="class_a_o_b___spawner.html#a3f67568380ca6c1b4153c80dbecafe55">AOB_Spawner::GetRandomItemClass</a> </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd><a class="el" href="#a1617da7d2b9d50ec2300a1fd5d1f3017" title="SpawnWeight">Логический вес</a> эктора </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00051">51</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00051">GetSpawnWeight()</a> и <a class="el" href="_o_b___interactable_actor_8h_source.html#l00121">SpawnWeight</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___spawner_8cpp_source.html#l00056">AOB_Spawner::GetRandomItemClass()</a> и <a class="el" href="_o_b___interactable_actor_8h_source.html#l00051">GetSpawnWeight()</a>.</p>
+
+</div>
+</div>
+<a id="ada63120cd566b82c4794bf903b2cc6a2" name="ada63120cd566b82c4794bf903b2cc6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada63120cd566b82c4794bf903b2cc6a2">&#9670;&#160;</a></span>DisableInteraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::DisableInteraction </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отключает возможность взаимодействия с эктором. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00088">88</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00128">bCanHighlight</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00113">bCanInteract</a> и <a class="el" href="_o_b___interactable_actor_8h_source.html#l00104">InteractionWidgetComp</a>.</p>
+
+</div>
+</div>
+<a id="abbb5df1da2919da45e878efb5376856b" name="abbb5df1da2919da45e878efb5376856b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbb5df1da2919da45e878efb5376856b">&#9670;&#160;</a></span>BeginPlay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::BeginPlay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00096">96</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00117">bSimulatePhysics</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00104">InteractionWidgetComp</a>, <a class="el" href="_o_b___interactable_actor_8h_source.html#l00132">InteractionWidgetInstance</a> и <a class="el" href="_o_b___interactable_actor_8h_source.html#l00101">MeshComponent</a>.</p>
+
+</div>
+</div>
+<a id="ae62990788245680a833ae1293e2be8fc" name="ae62990788245680a833ae1293e2be8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62990788245680a833ae1293e2be8fc">&#9670;&#160;</a></span>Interact_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::Interact_Implementation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_character.html">ACharacter</a> *</td>          <td class="paramname"><span class="paramname"><em>Interactor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>С++ реализация <a class="el" href="class_i_interactable.html#a582435ebb8bf7c12b4453a75ed33c591" title="IInteractable::Interact">IInteractable::Interact</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interactor</td><td>Персонаж, который совершил взаимодействие с эктором. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00110">110</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00076">CanInteract_Implementation()</a> и <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00175">PlayWidgetClickAnim()</a>.</p>
+
+</div>
+</div>
+<a id="a9a70255e17a3da54b25ffc06b78d64fb" name="a9a70255e17a3da54b25ffc06b78d64fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a70255e17a3da54b25ffc06b78d64fb">&#9670;&#160;</a></span>OnInteract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::OnInteract </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_character.html">ACharacter</a> *</td>          <td class="paramname"><span class="paramname"><em>Interactor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Реализация взаимодействия - вызвается при взаимодействии с эктором. </p>
+<p>Виртуальный метод, который может быть переопределен в дочерних классах для реализации взаимодействия с эктором. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interactor</td><td>Персонаж, который совершил взаимодействие с эктором. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="#a9a70255e17a3da54b25ffc06b78d64fb">OnInteract()</a> и <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00163">OnInteract_Implementation()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="#a9a70255e17a3da54b25ffc06b78d64fb">OnInteract()</a>.</p>
+
+</div>
+</div>
+<a id="a492c7e788b34920d4848b8a88dab1e90" name="a492c7e788b34920d4848b8a88dab1e90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492c7e788b34920d4848b8a88dab1e90">&#9670;&#160;</a></span>OnInteract_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::OnInteract_Implementation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_a_character.html">ACharacter</a> *</td>          <td class="paramname"><span class="paramname"><em>Interactor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>С++ реализация <a class="el" href="#a9a70255e17a3da54b25ffc06b78d64fb" title="AOB_InteractableActor::OnInteract">AOB_InteractableActor::OnInteract</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interactor</td><td>Персонаж, который совершил взаимодействие с эктором. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Переопределяется в <a class="el" href="class_a_o_b___inventory_actor.html#ac07b4d3b030220786fe99e89ae906bcb">AOB_InventoryActor</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00163">163</a></p>
+
+<p class="reference">Используется в <a class="el" href="#a9a70255e17a3da54b25ffc06b78d64fb">OnInteract()</a>.</p>
+
+</div>
+</div>
+<a id="afa7b640a460b94c0146c4ca27f45356b" name="afa7b640a460b94c0146c4ca27f45356b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa7b640a460b94c0146c4ca27f45356b">&#9670;&#160;</a></span>ShouldUseReliableRPC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AOB_InteractableActor::ShouldUseReliableRPC </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Реализация взаимодействия - Сервер (Reliable) Метод вызывается если эктор реплицируется. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interactor</td><td>Персонаж, который совершил взаимодействие с эктором.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Реализация взаимодействия - Сервер (Unreliable) Метод вызывается если эктор реплицируется. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interactor</td><td>Персонаж, который совершил взаимодействие с эктором.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод, решаюший будет ли использоваться вариант RPC метода с Reliable или Unreliable Метод можно переопределять в дочерних классах, по умолчанию он возвращает true. </p><dl class="section return"><dt>Возвращает</dt><dd>true - Вызовется метод AOB_InteractableActor::Server_Interact_Reliable | false - Вызовется метод AOB_InteractableActor::Server_Interact_Unreliable </dd></dl>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="#afa7b640a460b94c0146c4ca27f45356b">ShouldUseReliableRPC()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="#afa7b640a460b94c0146c4ca27f45356b">ShouldUseReliableRPC()</a>.</p>
+
+</div>
+</div>
+<a id="a7faebd6a9d7f540c684eb89a4fb3ec0d" name="a7faebd6a9d7f540c684eb89a4fb3ec0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7faebd6a9d7f540c684eb89a4fb3ec0d">&#9670;&#160;</a></span>ShouldUseReliableRPC_Implementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool AOB_InteractableActor::ShouldUseReliableRPC_Implementation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>C++ Реализация метода <a class="el" href="#afa7b640a460b94c0146c4ca27f45356b" title="AOB_InteractableActor::ShouldUseReliableRPC">AOB_InteractableActor::ShouldUseReliableRPC</a>. </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true Вызовется метод AOB_InteractableActor::Server_Interact_Reliable </dd>
+<dd>
+false Вызовется метод AOB_InteractableActor::Server_Interact_Unreliable </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00095">95</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00095">ShouldUseReliableRPC_Implementation()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8h_source.html#l00095">ShouldUseReliableRPC_Implementation()</a>.</p>
+
+</div>
+</div>
+<a id="aec54967c5ebece61cf8d7eac6d2c1106" name="aec54967c5ebece61cf8d7eac6d2c1106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec54967c5ebece61cf8d7eac6d2c1106">&#9670;&#160;</a></span>PlayWidgetClickAnim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AOB_InteractableActor::PlayWidgetClickAnim </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проигрывает анимацию нажатия для виджета взаимодействия </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a> строка <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00175">175</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="_o_b___interactable_actor_8h_source.html#l00132">InteractionWidgetInstance</a> и <a class="el" href="_interaction_hint_widget_8cpp_source.html#l00018">UInteractionHintWidget::PlayClickAnim()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00110">Interact_Implementation()</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="acf52ca1740ad8d36338e1212235c83de" name="acf52ca1740ad8d36338e1212235c83de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf52ca1740ad8d36338e1212235c83de">&#9670;&#160;</a></span>InteractionConditions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_u_o_b___condition.html">UOB_Condition</a>&gt; &gt; AOB_InteractableActor::InteractionConditions</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Условия для успешного взаимодействия </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00044">44</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00076">CanInteract_Implementation()</a>.</p>
+
+</div>
+</div>
+<a id="a2159f5f8300915d9e68d9f6f44eb6c88" name="a2159f5f8300915d9e68d9f6f44eb6c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2159f5f8300915d9e68d9f6f44eb6c88">&#9670;&#160;</a></span>MeshComponent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UStaticMeshComponent* AOB_InteractableActor::MeshComponent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00101">101</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00021">AOB_InteractableActor()</a> и <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00096">BeginPlay()</a>.</p>
+
+</div>
+</div>
+<a id="a56282c3deb96f813454ed2ec63475c63" name="a56282c3deb96f813454ed2ec63475c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56282c3deb96f813454ed2ec63475c63">&#9670;&#160;</a></span>InteractionWidgetComp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UWidgetComponent* AOB_InteractableActor::InteractionWidgetComp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00104">104</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00021">AOB_InteractableActor()</a>, <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00096">BeginPlay()</a>, <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00088">DisableInteraction()</a> и <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00059">ShowInteractionHint_Implementation()</a>.</p>
+
+</div>
+</div>
+<a id="a2bca24fb67b91ec66f175dc0e29af3f7" name="a2bca24fb67b91ec66f175dc0e29af3f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bca24fb67b91ec66f175dc0e29af3f7">&#9670;&#160;</a></span>InteractionWidgetClass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">class&lt;<a class="el" href="class_u_interaction_hint_widget.html">UInteractionHintWidget</a>&gt; AOB_InteractableActor::InteractionWidgetClass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Класс для отображения виджета взаимодействия По умолчанию используется UInteractionHint (WBP_InteractionHint). </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00109">109</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00021">AOB_InteractableActor()</a>.</p>
+
+</div>
+</div>
+<a id="aa3919e6b1fe3af062e8ce01f072baa2a" name="aa3919e6b1fe3af062e8ce01f072baa2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3919e6b1fe3af062e8ce01f072baa2a">&#9670;&#160;</a></span>bCanInteract</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AOB_InteractableActor::bCanInteract = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Определяет, можно ли взаимодействовать с эктором </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00113">113</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00088">DisableInteraction()</a> и <a class="el" href="_o_b___inventory_actor_8cpp_source.html#l00009">AOB_InventoryActor::OnInteract_Implementation()</a>.</p>
+
+</div>
+</div>
+<a id="ac18be5c430bd961eb19184c21cd8964c" name="ac18be5c430bd961eb19184c21cd8964c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac18be5c430bd961eb19184c21cd8964c">&#9670;&#160;</a></span>bSimulatePhysics</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AOB_InteractableActor::bSimulatePhysics = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Симиулирует ли физику эктор </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00117">117</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00096">BeginPlay()</a>.</p>
+
+</div>
+</div>
+<a id="a1617da7d2b9d50ec2300a1fd5d1f3017" name="a1617da7d2b9d50ec2300a1fd5d1f3017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1617da7d2b9d50ec2300a1fd5d1f3017">&#9670;&#160;</a></span>SpawnWeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AOB_InteractableActor::SpawnWeight = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Логический вес эктора </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00121">121</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8h_source.html#l00051">GetSpawnWeight()</a>.</p>
+
+</div>
+</div>
+<a id="a48cf51c8ca401dc486114f39951ab158" name="a48cf51c8ca401dc486114f39951ab158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48cf51c8ca401dc486114f39951ab158">&#9670;&#160;</a></span>Weight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AOB_InteractableActor::Weight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Физический вес эктора </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00125">125</a></p>
+
+</div>
+</div>
+<a id="a49275f611ff3810af3bb092975e57cd8" name="a49275f611ff3810af3bb092975e57cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49275f611ff3810af3bb092975e57cd8">&#9670;&#160;</a></span>bCanHighlight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AOB_InteractableActor::bCanHighlight = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Показывается ли виджет взаимодействия </p>
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00128">128</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00088">DisableInteraction()</a>, <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00069">HideInteractionHint_Implementation()</a> и <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00059">ShowInteractionHint_Implementation()</a>.</p>
+
+</div>
+</div>
+<a id="ac5ed51d967f6b8c9774011ee2265f0f0" name="ac5ed51d967f6b8c9774011ee2265f0f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5ed51d967f6b8c9774011ee2265f0f0">&#9670;&#160;</a></span>InteractionWidgetInstance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_u_interaction_hint_widget.html">UInteractionHintWidget</a>* AOB_InteractableActor::InteractionWidgetInstance = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a> строка <a class="el" href="_o_b___interactable_actor_8h_source.html#l00132">132</a></p>
+
+<p class="reference">Используется в <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00096">BeginPlay()</a>, <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00069">HideInteractionHint_Implementation()</a>, <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00175">PlayWidgetClickAnim()</a> и <a class="el" href="_o_b___interactable_actor_8cpp_source.html#l00059">ShowInteractionHint_Implementation()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Source/OmniBunker/Interaction/<a class="el" href="_o_b___interactable_actor_8h_source.html">OB_InteractableActor.h</a></li>
+<li>Source/OmniBunker/Interaction/<a class="el" href="_o_b___interactable_actor_8cpp_source.html">OB_InteractableActor.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_a_o_b___interactable_actor.html">AOB_InteractableActor</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OmniBunker UE5 C++ Проект: Исходный файл Source/OmniBunker/Interfaces/Interactable.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<meta name="doxygen-page-layout" content="1" />
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">OmniBunker UE5 C++ Проект<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация исходного кода проекта</div>
+  </td>
+ </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td></tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_interactable_8h_source.html','',''); });
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": true
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="container"><div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Interactable.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_interactable_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright (c) 2026 OmniBunker Team. All rights reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;UObject/Interface.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Interactable.generated.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>UINTERFACE(MinimalAPI)</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_u_interactable.html">   11</a></span>class <a class="code hl_class" href="class_u_interactable.html">UInteractable</a> : public <a class="code hl_class" href="class_u_interface.html">UInterface</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/// @brief Интерфейс для экторов с которыми может взаимодействовать игрок</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_i_interactable.html">   18</a></span><span class="keyword">class </span>OMNIBUNKER_API <a class="code hl_class" href="class_i_interactable.html">IInteractable</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">    /// @brief Обёртка взаимодействия игрока</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    /// Метод вызывается при взаимодействии игрока с эктором.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">    /// Вызывает соответствующий метод в зависимости от репликации эктора.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">    /// @param Interactor Персонаж, который совершил взаимодействие с эктором.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category=<span class="stringliteral">&quot;Interaction&quot;</span>)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_i_interactable.html#a582435ebb8bf7c12b4453a75ed33c591">   28</a></span>    void <a class="code hl_function" href="class_i_interactable.html#a582435ebb8bf7c12b4453a75ed33c591">Interact</a>(<a class="code hl_class" href="class_a_character.html">ACharacter</a>* Interactor);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    /// @brief Проверяет выполнены ли @ref InteractionConditions &quot;Условия&quot; для взаимодействия</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">    /// @param Interactor Персонаж игрока</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    /// @return true все условия выполнены</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">    /// @return false хотя бы одно условие не выполнено</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category=<span class="stringliteral">&quot;Interaction&quot;</span>)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_i_interactable.html#a01cf7a42c0c879aca61e5ff7a75294e4">   35</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_interactable.html#a01cf7a42c0c879aca61e5ff7a75294e4">CanInteract</a>(<a class="code hl_class" href="class_a_actor.html">AActor</a>* Interactor);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category=<span class="stringliteral">&quot;Interaction&quot;</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_i_interactable.html#ae5a5b64a532d0628d133ead0fc1a07a0">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_interactable.html#ae5a5b64a532d0628d133ead0fc1a07a0">ShowInteractionHint</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category=<span class="stringliteral">&quot;Interaction&quot;</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_i_interactable.html#a26ce95e208556c6e397f11e340a79e7d">   41</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_i_interactable.html#a26ce95e208556c6e397f11e340a79e7d">HideInteractionHint</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="ttc" id="aclass_a_actor_html"><div class="ttname"><a href="class_a_actor.html">AActor</a></div></div>
+<div class="ttc" id="aclass_a_character_html"><div class="ttname"><a href="class_a_character.html">ACharacter</a></div></div>
+<div class="ttc" id="aclass_i_interactable_html"><div class="ttname"><a href="class_i_interactable.html">IInteractable</a></div><div class="ttdoc">Интерфейс для экторов с которыми может взаимодействовать игрок</div><div class="ttdef"><b>Определения</b> <a href="#l00018">Interactable.h:19</a></div></div>
+<div class="ttc" id="aclass_i_interactable_html_a01cf7a42c0c879aca61e5ff7a75294e4"><div class="ttname"><a href="class_i_interactable.html#a01cf7a42c0c879aca61e5ff7a75294e4">IInteractable::CanInteract</a></div><div class="ttdeci">void CanInteract(AActor *Interactor)</div><div class="ttdoc">Проверяет выполнены ли Условия для взаимодействия</div></div>
+<div class="ttc" id="aclass_i_interactable_html_a26ce95e208556c6e397f11e340a79e7d"><div class="ttname"><a href="class_i_interactable.html#a26ce95e208556c6e397f11e340a79e7d">IInteractable::HideInteractionHint</a></div><div class="ttdeci">void HideInteractionHint()</div></div>
+<div class="ttc" id="aclass_i_interactable_html_a582435ebb8bf7c12b4453a75ed33c591"><div class="ttname"><a href="class_i_interactable.html#a582435ebb8bf7c12b4453a75ed33c591">IInteractable::Interact</a></div><div class="ttdeci">void Interact(ACharacter *Interactor)</div><div class="ttdoc">Обёртка взаимодействия игрока Метод вызывается при взаимодействии игрока с эктором.</div></div>
+<div class="ttc" id="aclass_i_interactable_html_ae5a5b64a532d0628d133ead0fc1a07a0"><div class="ttname"><a href="class_i_interactable.html#ae5a5b64a532d0628d133ead0fc1a07a0">IInteractable::ShowInteractionHint</a></div><div class="ttdeci">void ShowInteractionHint()</div></div>
+<div class="ttc" id="aclass_u_interactable_html"><div class="ttname"><a href="class_u_interactable.html">UInteractable</a></div><div class="ttdef"><b>Определения</b> <a href="#l00011">Interactable.h:12</a></div></div>
+<div class="ttc" id="aclass_u_interface_html"><div class="ttname"><a href="class_u_interface.html">UInterface</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_a3883cd9c99d4de3ebfc3e1cb8375b9e.html">OmniBunker</a></li><li class="navelem"><a href="dir_c4c857203d863c51c63a7ad0b3ea59f9.html">Interfaces</a></li><li class="navelem"><a href="_interactable_8h.html">Interactable.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>
