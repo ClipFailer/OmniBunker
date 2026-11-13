@@ -53,6 +53,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Inventory")
 	bool AddItem(UOB_InventoryItemData* InItemData, const int32 Quantity = 1);
 
+	bool AddItemWithRemainder(UOB_InventoryItemData* InItemData, const int32 Quantity, int32& OutLeftToAdd);
+
 	UFUNCTION(BlueprintCallable, Category="Inventory")
 	bool RemoveItemFromSlot(const int32 SlotIndex, const int32 Quantity = 1);
 

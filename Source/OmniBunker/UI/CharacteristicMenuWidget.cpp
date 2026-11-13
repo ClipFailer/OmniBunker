@@ -15,6 +15,10 @@ void UCharacteristicMenuWidget::Init(UCharacteristicComponent* CharacteristicCom
 	Widgets.Empty();
 	WidgetsBox->ClearChildren();
 
+	CharacteristicComponent->OnCharacteristicUpdated.RemoveDynamic(
+		this,
+		&ThisClass::UpdateWidget
+	);
 	CharacteristicComponent->OnCharacteristicUpdated.AddDynamic(
 		this,
 		&ThisClass::UpdateWidget

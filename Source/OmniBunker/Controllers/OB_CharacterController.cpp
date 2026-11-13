@@ -58,7 +58,7 @@ void AOB_CharacterController::SetupInputComponent()
 {
     Super::SetupInputComponent();
 
-    if (UEnhancedInputComponent* EnhancedIC = CastChecked<UEnhancedInputComponent>(InputComponent)) 
+    if (UEnhancedInputComponent* EnhancedIC = Cast<UEnhancedInputComponent>(InputComponent)) 
     {
         if (MoveIA) 
         {

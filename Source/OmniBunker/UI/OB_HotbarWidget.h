@@ -49,6 +49,7 @@ protected:
 	UPROPERTY()
 	TArray<UInventorySlot*>			Slots;
 
+	UPROPERTY()
 	UInventoryComponent* 			InventoryComp;
 
 private:

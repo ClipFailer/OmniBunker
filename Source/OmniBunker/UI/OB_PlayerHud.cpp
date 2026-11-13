@@ -9,6 +9,8 @@
 
 void UOB_PlayerHud::Init(AOB_BaseCharacter* Character) {
 	if (!Character) return;
+	if (InitializedCharacter == Character) return;
+	InitializedCharacter = Character;
 
 	PlayerController = Cast<APlayerController>(Character->GetController());
 
@@ -32,11 +34,15 @@ void UOB_PlayerHud::ToggleCharMenu() {
 	UE_LOG(LogTemp, Warning, TEXT("CharMenu visibility: %d"), bIsCharMenuOpen);
 
 	if (bIsCharMenuOpen) {
-		FWidgetAnimationDynamicEvent OnCharMenuAnimEnded;
-		OnCharMenuAnimEnded.BindDynamic(this, &ThisClass::OnCharMenuAppearenceEnded);
+		if (CharacteristicMenuWidgetAppearenceAnim) {
+			FWidgetAnimationDynamicEvent OnCharMenuAnimEnded;
+			OnCharMenuAnimEnded.BindDynamic(this, &ThisClass::OnCharMenuAppearenceEnded);
 
-		BindToAnimationFinished(CharacteristicMenuWidgetAppearenceAnim, OnCharMenuAnimEnded);
-		PlayAnimationReverse(CharacteristicMenuWidgetAppearenceAnim);
+			BindToAnimationFinished(CharacteristicMenuWidgetAppearenceAnim, OnCharMenuAnimEnded);
+			PlayAnimationReverse(CharacteristicMenuWidgetAppearenceAnim);
+		} else {
+			CharacteristicMenuWidget->SetVisibility(ESlateVisibility::Collapsed);
+		}
 
 		HideCursor();
 
@@ -44,7 +50,9 @@ void UOB_PlayerHud::ToggleCharMenu() {
 		ShowCursor();
 
 		CharacteristicMenuWidget->SetVisibility(ESlateVisibility::Visible);
-		PlayAnimation(CharacteristicMenuWidgetAppearenceAnim);
+		if (CharacteristicMenuWidgetAppearenceAnim) {
+			PlayAnimation(CharacteristicMenuWidgetAppearenceAnim);
+		}
 	}
 
 	bIsCharMenuOpen = !bIsCharMenuOpen;

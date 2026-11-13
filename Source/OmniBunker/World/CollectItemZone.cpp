@@ -45,11 +45,12 @@ void ACollectItemZone::OnOverlapBegin(
 ) {
 	if (AOB_InventoryActor* InventoryActor = Cast<AOB_InventoryActor>(OtherActor)) {
 		UOB_InventoryItemData* ItemData = InventoryActor->GetItemData();
+		const int32 Quantity = FMath::Max(InventoryActor->GetQuantity(), 1);
 
 		// If Actor is AOB_InventoryActor, ItemData is correct and itemAmount > 0: 
 		// add Actor to CollectedItems and destroy it.
 
-		bool bSuccess = AddItem(ItemData);
+		bool bSuccess = AddItem(ItemData, Quantity);
 		if (bSuccess) { 
 			OtherActor->Destroy();
 		}
@@ -66,8 +67,8 @@ void ACollectItemZone::OnOverlapBegin(
 	
 // }
 
-bool ACollectItemZone::AddItem(UOB_InventoryItemData* ItemData) {
-	if (!ItemData) return false;
+bool ACollectItemZone::AddItem(UOB_InventoryItemData* ItemData, const int32 Amount) {
+	if (!ItemData || Amount <= 0) return false;
 
 	// Finding the existing item to increase total amount, else creating new ItemCollection.
 	if (FItemCollection* ItemCollection = CollectedItems.FindByPredicate(
@@ -76,7 +77,7 @@ bool ACollectItemZone::AddItem(UOB_InventoryItemData* ItemData) {
 			}
 		)
 	) {
-		ItemCollection->TotalAmount += ItemData->MaxStackSize;
+		ItemCollection->TotalAmount += Amount;
 
 		UE_LOG(
 			LogTemp, 
@@ -89,7 +90,7 @@ bool ACollectItemZone::AddItem(UOB_InventoryItemData* ItemData) {
 	} else {
 		FItemCollection NewItemCollection;
 		NewItemCollection.ItemData = ItemData;
-		NewItemCollection.TotalAmount = ItemData->MaxStackSize;
+		NewItemCollection.TotalAmount = Amount;
 
 		CollectedItems.Add(NewItemCollection);
 

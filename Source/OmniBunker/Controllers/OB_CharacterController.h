@@ -29,6 +29,7 @@ protected:
 	virtual void OnPossess(APawn* InPawn) override;
 	virtual void SetupInputComponent() override;
 
+	UPROPERTY()
 	TObjectPtr<AOB_BaseCharacter> ControlledCharacter;
 
 	// === UI ===

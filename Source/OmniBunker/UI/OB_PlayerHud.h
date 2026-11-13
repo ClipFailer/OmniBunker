@@ -51,4 +51,7 @@ protected:
 
 	UPROPERTY()
 	APlayerController* PlayerController;
+
+	UPROPERTY()
+	TObjectPtr<AOB_BaseCharacter> InitializedCharacter;
 };

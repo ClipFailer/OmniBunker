@@ -58,7 +58,7 @@ protected:
 
 	FTimerHandle TraceTimer;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Interaction")
-	float TraceTimerDelay = 0.3;
+	float TraceTimerDelay = 0.3f;
 
 private:
 	UPROPERTY()

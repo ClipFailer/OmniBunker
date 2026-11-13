@@ -20,7 +20,9 @@ void AOB_Spawner::SpawnItem() {
         return;
     }
 
-	const int32 ItemsToSpawnCount = FMath::RandRange(MinSpawnCount, MaxSpawnCount);
+	const int32 SafeMin = FMath::Min(MinSpawnCount, MaxSpawnCount);
+	const int32 SafeMax = FMath::Max(MinSpawnCount, MaxSpawnCount);
+	const int32 ItemsToSpawnCount = FMath::RandRange(SafeMin, SafeMax);
 	for (int32 i = 0; i < ItemsToSpawnCount; ++i) {
 		TSubclassOf<AOB_InteractableActor> ItemClass = GetRandomItemClass();
 		if (!IsValid(ItemClass)) continue;

@@ -46,7 +46,7 @@ protected:
     //                   UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	// Adds item to CollectedItems and returns true on success.
-	bool AddItem(UOB_InventoryItemData* ItemData);
+	bool AddItem(UOB_InventoryItemData* ItemData, const int32 Amount = 1);
 
 	// Removes item from CollectedItems.
 	// void RemoveItem(UOB_InventoryItemData* ItemData);

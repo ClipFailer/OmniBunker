@@ -23,7 +23,10 @@ UOB_InteractionComponent::UOB_InteractionComponent()
 }
 
 void UOB_InteractionComponent::Interact() {
-	if (!CurrentTargetActor) return;
+	if (!IsValid(CurrentTargetActor)) {
+		CurrentTargetActor = nullptr;
+		return;
+	}
 
 	IInteractable::Execute_Interact(CurrentTargetActor, Cast<ACharacter>(GetOwner()));
 }
@@ -54,6 +57,26 @@ void UOB_InteractionComponent::BeginPlay()
 }
 
 void UOB_InteractionComponent::DoInteractionTrace() {
+	if (InteractionZone) {
+		TArray<AActor*> OverlappingActors;
+		InteractionZone->GetOverlappingActors(OverlappingActors);
+		bool bHasInteractables = false;
+		for (AActor* OverlapActor : OverlappingActors) {
+			if (IsValid(OverlapActor) && OverlapActor->Implements<UInteractable>()) {
+				bHasInteractables = true;
+				break;
+			}
+		}
+		if (!bHasInteractables) {
+			InteractablesInRangeCount = 0;
+			if (GetWorld()) {
+				GetWorld()->GetTimerManager().ClearTimer(TraceTimer);
+			}
+			ResetTargetActor();
+			return;
+		}
+	}
+
 	ACharacter* OwnerCharacter = Cast<ACharacter>(GetOwner());
 	if (!OwnerCharacter) return;
 
@@ -119,9 +142,9 @@ void UOB_InteractionComponent::SetTargetActor(AActor* TargetActor) {
 }
 
 void UOB_InteractionComponent::ResetTargetActor() {
-	if (!IsValid(CurrentTargetActor)) return;
-    
-	IInteractable::Execute_HideInteractionHint(CurrentTargetActor);
+	if (IsValid(CurrentTargetActor)) {
+		IInteractable::Execute_HideInteractionHint(CurrentTargetActor);
+	}
 
 	CurrentTargetActor = nullptr;
 }

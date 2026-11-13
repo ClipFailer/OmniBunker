@@ -56,10 +56,21 @@ bool AOB_BaseCharacter::Pickup_Implementation(AOB_InventoryActor* InventoryActor
 {
     if (!InventoryActor || !InventoryComp) return false;
 
-    return InventoryComp->AddItem(
+    const int32 InitialQuantity = InventoryActor->GetQuantity();
+    int32 LeftToAdd = InitialQuantity;
+
+    InventoryComp->AddItemWithRemainder(
         InventoryActor->GetItemData(), 
-        InventoryActor->GetQuantity()
+        InitialQuantity,
+        LeftToAdd
     );
+
+    if (LeftToAdd < InitialQuantity)
+    {
+        InventoryActor->SetQuantity(LeftToAdd);
+    }
+
+    return LeftToAdd == 0;
 }
 
 UOB_InteractionComponent* AOB_BaseCharacter::GetInteractionComp_Implementation() const 

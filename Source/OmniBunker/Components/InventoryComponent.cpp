@@ -14,6 +14,13 @@ UInventoryComponent::UInventoryComponent()
 }
 
 bool UInventoryComponent::AddItem(UOB_InventoryItemData* InItemData, const int32 Quantity) {
+	int32 LeftToAdd = Quantity;
+	AddItemWithRemainder(InItemData, Quantity, LeftToAdd);
+	return LeftToAdd == 0;
+}
+
+bool UInventoryComponent::AddItemWithRemainder(UOB_InventoryItemData* InItemData, const int32 Quantity, int32& OutLeftToAdd) {
+	OutLeftToAdd = Quantity;
 	if (!InItemData || Quantity <= 0) return false;
 
 	int32 LeftToAdd = Quantity;
@@ -21,7 +28,7 @@ bool UInventoryComponent::AddItem(UOB_InventoryItemData* InItemData, const int32
 	// Проверяем стакается ли предмет.
 	if (InItemData->bIsStackable) {
 		// Проверяем есть ли такой же объект для объеденения стака
-		for (int32 i = 0; i < InventorySize; ++i) {
+		for (int32 i = 0; i < InventorySlots.Num(); ++i) {
 			if (LeftToAdd <= 0) break;
 
 			if (InventorySlots[i].ItemData == InItemData && InventorySlots[i].Quantity < InItemData->MaxStackSize) {
@@ -48,7 +55,8 @@ bool UInventoryComponent::AddItem(UOB_InventoryItemData* InItemData, const int32
 		OnInventorySlotUpdated.Broadcast(EmptySlotIndex, InventorySlots[EmptySlotIndex]);
 	}
 
-	return true;
+	OutLeftToAdd = LeftToAdd;
+	return OutLeftToAdd == 0;
 }
 
 bool UInventoryComponent::RemoveItemFromSlot(const int32 SlotIndex, const int32 Quantity) {
@@ -144,12 +152,12 @@ void UInventoryComponent::Drop() {
     }
 
 	UOB_InventoryItemData* ItemData = SelectedItem->GetItemData();
-	if (ItemData) {
-		if (ItemData->bDropAllStack) {
-				int32 CurrentQuantity = InventorySlots[DroppedSlotIndex].Quantity;
-				RemoveItemFromSlot(DroppedSlotIndex, CurrentQuantity);
-		}
+	if (ItemData && ItemData->bDropAllStack) {
+		const int32 CurrentQuantity = InventorySlots[DroppedSlotIndex].Quantity;
+		SelectedItem->SetQuantity(CurrentQuantity);
+		RemoveItemFromSlot(DroppedSlotIndex, CurrentQuantity);
 	} else {
+		SelectedItem->SetQuantity(1);
 		RemoveItemFromSlot(DroppedSlotIndex, 1);
 	}
 
@@ -167,10 +175,14 @@ void UInventoryComponent::Drop() {
 void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (InventorySlots.Num() != InventorySize) {
+		InventorySlots.SetNum(InventorySize);
+	}
 }
 
 int32 UInventoryComponent::FindEmptySlot() const {
-	for (int32 i = 0; i < InventorySize; ++i) {
+	for (int32 i = 0; i < InventorySlots.Num(); ++i) {
 		if (InventorySlots[i].IsEmpty()) return i;
 	}
 
@@ -178,7 +190,7 @@ int32 UInventoryComponent::FindEmptySlot() const {
 }
 
 int32 UInventoryComponent::FindStackableSlot(UOB_InventoryItemData* InItemData) {
-	for (int32 i = 0; i < InventorySize; ++i) {
+	for (int32 i = 0; i < InventorySlots.Num(); ++i) {
 		if (InItemData == InventorySlots[i].ItemData && 
 			InventorySlots[i].Quantity < InItemData->MaxStackSize) {
 				return i;
